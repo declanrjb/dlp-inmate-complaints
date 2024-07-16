@@ -1,6 +1,10 @@
 # Overview
 Initial stages of volunteer data cleaning for the Data Liberation Project's Federal Inmate Complaints dataset.
 
+# Large Files
+Drive folder with large files that cannot be stored on GitHub
+https://drive.google.com/drive/folders/1yhVTG_iZfAWIbg349VBOGRQkMGYL79Za?usp=sharing
+
 # Proposed Changes / Additions to the Documentation
 Google Doc containing notes on columns added or altered during this process:
 https://docs.google.com/document/d/1fYZagz3RH4Ba4Tf3P3nh5ShAD99DzArc0u9YwjcQ4lI/edit?usp=sharing
