@@ -140,7 +140,7 @@ df <- df %>% left_join(status_reason_codes,
 df <- df %>% select(!Status_Reasons)
 
 # rearrange columns for readability
-new_df <- df %>% select(Case_Number,
+df <- df %>% select(Case_Number,
                     Case_Status,
                     Subject_Primary_DESC,
                     Subject_Secondary_DESC,
