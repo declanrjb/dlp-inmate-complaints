@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+raw_data/complaint-filings.csv
+clean_data/complaint-filings_clean.csv

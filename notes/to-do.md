@@ -1,0 +1,1 @@
+1. hypothesize translations of facility type codes and check against random sample of public data
