@@ -10,7 +10,7 @@ Google Doc containing notes on columns added or altered during this process:
 https://docs.google.com/document/d/1fYZagz3RH4Ba4Tf3P3nh5ShAD99DzArc0u9YwjcQ4lI/edit?usp=sharing
 
 # Steps Taken
-Overall, the dataset was reduced from 37 columns to 21 after dropping redundant and/or derived columns. No rows were dropped at this stage.
+Overall, the dataset was reduced from 37 columns to 19 after dropping redundant and/or derived columns. No rows were dropped at this stage.
 
 Wherever possible, esoteric codes were replaced with their human-readable equivalents according to dictionaries provided by the BOP.
 This alteration was not performed if a) doing so would make the data less readable or less easy or to understand, b) no such dictionaries
