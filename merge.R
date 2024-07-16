@@ -36,12 +36,24 @@ df <- left_join(df,
                 facility_names %>% rename(Facility_Occurred_NM = facility_name),
                 by=c('CDFCLEVN' = 'facility_code')) %>%
   rename(Facility_Occurred_CODE = CDFCLEVN)
+# where no name translation is available, use the code. Otherwise use the name
+df['Facility_Occurred'] <- ifelse(is.na(df$Facility_Occurred_NM), df$Facility_Occurred_CODE, df$Facility_Occurred_NM)
+# drop the two input columns, having collapsed them
+df <- df %>% 
+  select(!Facility_Occurred_CODE) %>%
+  select(!Facility_Occurred_NM)
 
 # bind in facility received name
 df <- left_join(df,
                 facility_names %>% rename(Facility_Received_NM = facility_name),
                 by=c('CDFCLRCV' = 'facility_code')) %>%
   rename(Facility_Received_CODE = CDFCLRCV)
+# where no name translation is available, use the code. Otherwise use the name
+df['Facility_Received'] <- ifelse(is.na(df$Facility_Received_NM), df$Facility_Received_CODE, df$Facility_Received_NM)
+# drop the two input columns, having collapsed them
+df <- df %>%
+  select(!Facility_Received_CODE) %>%
+  select(!Facility_Received_NM)
 
 # translate status code to human readable, then drop redundant binary columns
 df <- df %>% mutate(
@@ -85,7 +97,7 @@ df <- df %>% select(!submit)
 df <- df %>% select(!filed) %>% select(!closed)
 
 # add units for clarity
-df <- df %>% rename(Comptime_Days = comptime)
+df <- df %>% select(!comptime)
 
 df['Status_Reasons'] <- df[,which(colnames(df) %in% c('STAT_RSON_1',
                               'STAT_RSON_2',
@@ -112,32 +124,40 @@ df <- df %>%
 # that removing it would simply create extra work for most analysts
 
 # bind in the human readable status reasons
-df <- df %>% left_join(status_reason_codes,
-                 by=c('STAT_RSON_1' = 'STATUS_CODE')) %>%
+# reverted to reduce file size
+# df <- df %>% left_join(status_reason_codes,
+#                  by=c('STAT_RSON_1' = 'STATUS_CODE')) %>%
+#   select(!STAT_RSON_1) %>%
+#   rename(STAT_RSON_1 = STATUS_REASON)
+# 
+# df <- df %>% left_join(status_reason_codes,
+#                        by=c('STAT_RSON_2' = 'STATUS_CODE')) %>%
+#   select(!STAT_RSON_2) %>%
+#   rename(STAT_RSON_2 = STATUS_REASON)
+# 
+# df <- df %>% left_join(status_reason_codes,
+#                        by=c('STAT_RSON_3' = 'STATUS_CODE')) %>%
+#   select(!STAT_RSON_3) %>%
+#   rename(STAT_RSON_3 = STATUS_REASON)
+# 
+# df <- df %>% left_join(status_reason_codes,
+#                        by=c('STAT_RSON_4' = 'STATUS_CODE')) %>%
+#   select(!STAT_RSON_4) %>%
+#   rename(STAT_RSON_4 = STATUS_REASON)
+# 
+# df <- df %>% left_join(status_reason_codes,
+#                        by=c('STAT_RSON_5' = 'STATUS_CODE')) %>%
+#   select(!STAT_RSON_5) %>%
+#   rename(STAT_RSON_5 = STATUS_REASON)
+
+# collapse status reasons to a single column
+#df <- df %>% select(!Status_Reasons)
+df <- df %>%
   select(!STAT_RSON_1) %>%
-  rename(STAT_RSON_1 = STATUS_REASON)
-
-df <- df %>% left_join(status_reason_codes,
-                       by=c('STAT_RSON_2' = 'STATUS_CODE')) %>%
   select(!STAT_RSON_2) %>%
-  rename(STAT_RSON_2 = STATUS_REASON)
-
-df <- df %>% left_join(status_reason_codes,
-                       by=c('STAT_RSON_3' = 'STATUS_CODE')) %>%
   select(!STAT_RSON_3) %>%
-  rename(STAT_RSON_3 = STATUS_REASON)
-
-df <- df %>% left_join(status_reason_codes,
-                       by=c('STAT_RSON_4' = 'STATUS_CODE')) %>%
   select(!STAT_RSON_4) %>%
-  rename(STAT_RSON_4 = STATUS_REASON)
-
-df <- df %>% left_join(status_reason_codes,
-                       by=c('STAT_RSON_5' = 'STATUS_CODE')) %>%
-  select(!STAT_RSON_5) %>%
-  rename(STAT_RSON_5 = STATUS_REASON)
-
-df <- df %>% select(!Status_Reasons)
+  select(!STAT_RSON_5)
 
 # rearrange columns for readability
 df <- df %>% select(Case_Number,
@@ -146,20 +166,26 @@ df <- df %>% select(Case_Number,
                     Subject_Secondary_DESC,
                     Org_Level,
                     Received_Office,
-                    Comptime_Days,
-                    Facility_Occurred_CODE,
-                    Facility_Occurred_NM,
-                    Facility_Received_CODE,
-                    Facility_Received_NM,
+                    Facility_Occurred,
+                    Facility_Received,
                     sdtdue,
                     sdtstat,
                     sitdtrcv,
-                    STAT_RSON_1,
-                    STAT_RSON_2,
-                    STAT_RSON_3,
-                    STAT_RSON_4,
-                    STAT_RSON_5)
+                    Status_Reasons)
 
-write.csv(df,'clean_data/complaint-filings_clean.csv',row.names=FALSE)
+df_2000_09 <- df %>% 
+  filter(year(sitdtrcv) %in% 2000:2009)
+
+df_2010_19 <- df %>% 
+  filter(year(sitdtrcv) %in% 2010:2019)
+
+df_2020_24 <- df %>% 
+  filter(year(sitdtrcv) %in% 2020:2024)
+
+write.csv(df,'clean_data/all_complaint-filings_clean.csv',row.names=FALSE, na='')
+
+write.csv(df_2000_09,'clean_data/complaint-filings_2000-2009_clean.csv',row.names=FALSE, na='')
+write.csv(df_2010_19,'clean_data/complaint-filings_2010-2019_clean.csv',row.names=FALSE, na='')
+write.csv(df_2020_24,'clean_data/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
 
 
