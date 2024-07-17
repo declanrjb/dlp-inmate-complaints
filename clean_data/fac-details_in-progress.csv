@@ -1,0 +1,184 @@
+"facility_code","facility_type","facility_name","URL","Fac_Name","Fac_Address","Fac_Pop_Gender","Fac_Pop_Count"
+"CAC","C","ADAMS COUNTY CORR CTR CCM",NA,NA,NA,NA,NA
+"CAT","C","ATLANTA CCM","https://www.bop.gov/locations/ccm/cat","RRM Atlanta","719 MCDONOUGH BLVD S.E. ATLANTA, GA 30315",NA,NA
+"CBR","C","BALTIMORE CCM","https://www.bop.gov/locations/ccm/cbr/","RRM Baltimore","400 FIRST STREET, NW 5TH FLOORWASHINGTON, MD 20534",NA,NA
+"CBS","C","BIG SPRING CCM",NA,NA,NA,NA,NA
+"CBN","C","BOSTON CCM",NA,NA,NA,NA,NA
+"CCF","C","CALIFORNIA CITY CCM",NA,NA,NA,NA,NA
+"CCH","C","CHICAGO CCM","https://www.bop.gov/locations/ccm/cch/","RRM Chicago","1901 BUTTERFIELD ROAD, SUITE 130DOWNERS GROVE, IL 60515",NA,NA
+"CCB","C","CIBOLA COUNTY CCM",NA,NA,NA,NA,NA
+"CCN","C","CINCINNATI CCM","https://www.bop.gov/locations/ccm/ccn/","RRM Cincinnati","36 E. 7TH ST., SUITE 2107-A CINCINNATI, OH 45202",NA,NA
+"CRJ","C","D. RAY JAMES CORR FCL CCM",NA,NA,NA,NA,NA
+"CDL","C","DALBY CCM",NA,NA,NA,NA,NA
+"CDA","C","DALLAS CCM","https://www.bop.gov/locations/ccm/cda/","RRM Dallas","US ARMED FORCES RESERVE CMPL 344 MARINE FORCES DRGRAND PRAIRIE, TX 75051",NA,NA
+"CDE","C","DENVER CCM",NA,NA,NA,NA,NA
+"CDT","C","DETROIT CCM","https://www.bop.gov/locations/ccm/cdt/","RRM Detroit","4026 E. ARKONA RD. MILAN, MI 48160",NA,NA
+"CDC","C","DIST OF COLUMBIA CCM",NA,NA,NA,NA,NA
+"CED","C","EDEN CCM",NA,NA,NA,NA,NA
+"CEP","C","EL PASO CCM",NA,NA,NA,NA,NA
+"CGP","C","GREAT PLAINS CCM",NA,NA,NA,NA,NA
+"CHN","C","HOUSTON CCM",NA,NA,NA,NA,NA
+"CKC","C","KANSAS CITY CCM","https://www.bop.gov/locations/ccm/ckc/","RRM Kansas City","400 STATE AVE., RM 131 KANSAS CITY, KS 66101",NA,NA
+"CLI","C","LIMESTONE CCM",NA,NA,NA,NA,NA
+"CLB","C","LONG BEACH CCM","https://www.bop.gov/locations/ccm/clb/","RRM Long Beach","1299 SEASIDE AVENUE SAN PEDRO, CA 90731",NA,NA
+"CMC","C","MCRAE CCM",NA,NA,NA,NA,NA
+"CMM","C","MIAMI CCM","https://www.bop.gov/locations/ccm/cmm","RRM Miami","401 N MIAMI AVENUE MIAMI, FL 33128",NA,NA
+"CMI","C","MILWAUKEE CCM",NA,NA,NA,NA,NA
+"CMS","C","MINNEAPOLIS CCM","https://www.bop.gov/locations/ccm/cms/","RRM Minneapolis","300 SOUTH 4TH ST, SUITE 1210 MINNEAPOLIS, MN 55415",NA,NA
+"CMY","C","MONTGOMERY CCM","https://www.bop.gov/locations/ccm/cmy","RRM Montgomery","MAXWELL AFB, BLDG 1209 820 WILLOW STREETMONTGOMERY, AL 36112",NA,NA
+"CMV","C","MOSHANNON VALLEY CCM",NA,NA,NA,NA,NA
+"CNV","C","NASHVILLE CCM","https://www.bop.gov/locations/ccm/cnv/","RRM Nashville","701 BROADWAY ST, SUITE 124 NASHVILLE, TN 37203",NA,NA
+"CNO","C","NEW ORLEANS CCM",NA,NA,NA,NA,NA
+"CNK","C","NEW YORK CCM","https://www.bop.gov/locations/ccm/cnk/","RRM New York","201 VARICK STREET ROOM 849NEW YORK, NY 10014",NA,NA
+"COR","C","ORLANDO CCM","https://www.bop.gov/locations/ccm/cor/","RRM Orlando","6303 COUNTY ROAD 500 WILDWOOD, FL 34785",NA,NA
+"CPA","C","PHILADELPHIA CCM","https://www.bop.gov/locations/ccm/cpa/","RRM Philadelphia","2ND & CHESTNUT ST - 7TH FL PHILADELPHIA, PA 19106",NA,NA
+"CPH","C","PHOENIX CCM","https://www.bop.gov/locations/ccm/cph/","RRM Phoenix","230 N FIRST AVE, SUITE 405 PHOENIX, AZ 85003",NA,NA
+"CPG","C","PITTSBURGH CCM","https://www.bop.gov/locations/ccm/cpg/","RRM Pittsburgh","1000 LIBERTY AVENUE,STE 1315 PITTSBURGH, PA 15222",NA,NA
+"CRL","C","RALEIGH CCM","https://www.bop.gov/locations/ccm/crl/","RRM Raleigh","OLD NC 75 HIGHWAY BUTNER, NC 27509",NA,NA
+"CRE","C","REEVES CCM",NA,NA,NA,NA,NA
+"CRS","C","REEVES DC CCM",NA,NA,NA,NA,NA
+"CRV","C","RIVERS CCM",NA,NA,NA,NA,NA
+"CSC","C","SACRAMENTO CCM","https://www.bop.gov/locations/ccm/csc/","RRM","501 I STREET, SUITE 9-400 SACRAMENTO, CA 95814",NA,NA
+"CSL","C","SALT LAKE CITY CCM",NA,NA,NA,NA,NA
+"CSA","C","SAN ANTONIO CCM","https://www.bop.gov/locations/ccm/csa","RRM San Antonio","727 EAST CESAR E. CHAVEZ BLV SUITE B-138SAN ANTONIO, TX 78206",NA,NA
+"CSE","C","SEATTLE CCM","https://www.bop.gov/locations/ccm/cse","RRM Seattle","2425 SOUTH 200 ST (AT FDC) SEATTLE, WA 98198",NA,NA
+"CST","C","ST LOUIS CCM","https://www.bop.gov/locations/ccm/cst/","RRM St Louis","1222 SPRUCE ST, SUITE 6.101 ST LOUIS, MO 63103",NA,NA
+"CTF","C","TAFT CCM",NA,NA,NA,NA,NA
+"ACC","T","ADAMS COUNTY CORR CTR CI",NA,NA,NA,NA,NA
+"ALD","T","ALDERSON FPC","https://www.bop.gov/locations/institutions/ald/","FPC Alderson","GLEN RAY RD. BOX A ALDERSON, WV 24910","Female",776
+"ALI","T","ALICEVILLE FCI","https://www.bop.gov/locations/institutions/ali/","FCI Aliceville","11070 HIGHWAY 14 ALICEVILLE, AL 35442","Female",1610
+"ALF","T","ALLENWOOD LOW FCI","https://www.bop.gov/locations/institutions/alf/","FCI Allenwood Low","RT 15,2 MILES N OF ALLENWOOD ALLENWOOD, PA 17810","Male",1032
+"ALM","T","ALLENWOOD MED FCI","https://www.bop.gov/locations/institutions/alm/","FCI Allenwood Medium","RT 15, 2 MI N OF ALLENWOOD WHITE DEER, PA 17810","Male",1255
+"ALP","T","ALLENWOOD USP","https://www.bop.gov/locations/institutions/alp/","USP Allenwood","RT 15,2 MILES N OF ALLENWOOD ALLENWOOD, PA 17810","Male",196
+"ASH","T","ASHLAND FCI","https://www.bop.gov/locations/institutions/ash/","FCI Ashland","ST. ROUTE 716 ASHLAND, KY 41105","Male",1353
+"ATL","T","ATLANTA USP","https://www.bop.gov/locations/institutions/atl/","FCI Atlanta","601 MCDONOUGH BLVD SE ATLANTA, GA 30315","Male",1648
+"ATW","T","ATWATER USP","https://www.bop.gov/locations/institutions/atw/","USP Atwater","1 FEDERAL WAY ATWATER, CA 95301","Male",1223
+"BAS","T","BASTROP FCI","https://www.bop.gov/locations/institutions/bas/","FCI Bastrop","1341 HIGHWAY 95 NORTH BASTROP, TX 78602","Male",1100
+"BMA","T","BEAUMONT ADMIN",NA,NA,NA,NA,NA
+"BML","T","BEAUMONT LOW FCI","https://www.bop.gov/locations/institutions/bml/","FCI Beaumont Low","5560 KNAUTH ROAD BEAUMONT, TX 77705","Male",2079
+"BMM","T","BEAUMONT MED FCI","https://www.bop.gov/locations/institutions/bmm/","FCI Beaumont Medium","5830 KNAUTH ROAD BEAUMONT, TX 77705","Male",1627
+"BMP","T","BEAUMONT USP","https://www.bop.gov/locations/institutions/bmp/","USP Beaumont","6200 KNAUTH ROAD BEAUMONT, TX 77705","Male",1272
+"BEC","T","BECKLEY FCI","https://www.bop.gov/locations/institutions/bec/","FCI Beckley","1600 INDUSTRIAL ROAD BEAVER, WV 25813","Male",1703
+"BEN","T","BENNETTSVILLE FCI","https://www.bop.gov/locations/institutions/ben/","FCI Bennettsville","696 MUCKERMAN ROAD BENNETTSVILLE, SC 29512","Male",1659
+"BER","T","BERLIN FCI","https://www.bop.gov/locations/institutions/ber/","FCI Berlin","1 SUCCESS LOOP ROAD BERLIN, NH 03570","Male",902
+"BSY","T","BIG SANDY USP","https://www.bop.gov/locations/institutions/bsy/","USP Big Sandy","1197 AIRPORT ROAD INEZ, KY 41224","Male",1313
+"BSC","T","BIG SPRING CI",NA,NA,NA,NA,NA
+"BIG","T","BIG SPRING FCI","https://www.bop.gov/locations/institutions/big/","FCI Big Spring","1900 SIMLER AVE BIG SPRING, TX 79720","Male",842
+"BRO","T","BROOKLYN MDC","https://www.bop.gov/locations/institutions/bro/","MDC Brooklyn","80 29TH STREET BROOKLYN, NY 11232","Male and Female",1316
+"BRY","T","BRYAN FPC","https://www.bop.gov/locations/institutions/bry/","FPC Bryan","1100 URSULINE AVENUE BRYAN, TX 77803","Female",663
+"BUH","T","BUTNER FMC","https://www.bop.gov/locations/institutions/buh/","FMC Butner","OLD N. CAROLINA HWY 75 BUTNER, NC 27509","Male",863
+"BUF","T","BUTNER LOW FCI","https://www.bop.gov/locations/institutions/buf/","FCI Butner Low","OLD NC HWY 75 BUTNER, NC 27509","Male",1001
+"BUT","T","BUTNER MED I FCI","https://www.bop.gov/locations/institutions/but/","FCI Butner Medium I","OLD NC HWY 75 BUTNER, NC 27509","Male",863
+"BTF","T","BUTNER MED II FCI","https://www.bop.gov/locations/institutions/btf/","FCI Butner Medium II","OLD NC HWY 75 BUTNER, NC 27509","Male",1587
+"CAA","T","CANAAN USP","https://www.bop.gov/locations/institutions/caa/","USP Canaan","3057 ERIC J. WILLIAMS MEMORIAL DRIVEWAYMART, PA 18472","Male",1321
+"CRW","T","CARSWELL FMC","https://www.bop.gov/locations/institutions/crw/","FMC Carswell","NAVAL AIR STATION J ST BLDG 3000FORT WORTH, TX 76127","Female",1132
+"CCC","T","CHICAGO MCC","https://www.bop.gov/locations/institutions/ccc/","MCC Chicago","71 WEST VAN BUREN STREET CHICAGO, IL 60605","Male and Female",523
+"CIB","T","CIBOLA COUNTY CI",NA,NA,NA,NA,NA
+"COA","T","COLEMAN ADMIN",NA,NA,NA,NA,NA
+"COP","T","COLEMAN I USP","https://www.bop.gov/locations/institutions/cop/","USP Coleman I","846 NE 54TH TERRACE SUMTERVILLE, FL 33521","Male",1414
+"CLP","T","COLEMAN II USP","https://www.bop.gov/locations/institutions/clp/","USP Coleman II","846 NE 54TH TERRACE SUMTERVILLE, FL 33521","Male",1124
+"COL","T","COLEMAN LOW FCI","https://www.bop.gov/locations/institutions/col/","FCI Coleman Low","846 NE 54TH TERRACE SUMTERVILLE, FL 33521","Male",2046
+"COM","T","COLEMAN MED FCI","https://www.bop.gov/locations/institutions/com/","FCI Coleman Medium","846 NE 54TH TERRACE SUMTERVILLE, FL 33521","Male",1568
+"CUM","T","CUMBERLAND FCI","https://www.bop.gov/locations/institutions/cum/","FCI Cumberland","14601 BURBRIDGE RD SE CUMBERLAND, MD 21502","Male",1023
+"DRJ","T","D. RAY JAMES CORR FACL CI",NA,NA,NA,NA,NA
+"DAL","T","DALBY CI",NA,NA,NA,NA,NA
+"DAN","T","DANBURY FCI","https://www.bop.gov/locations/institutions/dan/","FCI Danbury","33 1/2 PEMBROKE STATION ROUTE 37DANBURY, CT 06811","Male and Female",1177
+"DEV","T","DEVENS FMC","https://www.bop.gov/locations/institutions/dev/","FMC Devens","42 PATTON ROAD AYER, MA 01432","Male",1014
+"DUB","T","DUBLIN FCI","https://www.bop.gov/locations/institutions/dub/","FCI Dublin","5701 8TH ST - CAMP PARKS DUBLIN, CA 94568","Female",1
+"DTH","T","DULUTH FPC","https://www.bop.gov/locations/institutions/dth/","FPC Duluth","4464 RALSTON DRIVE DULUTH, MN 55811","Male",663
+"EDN","T","EDEN CI",NA,NA,NA,NA,NA
+"EDG","T","EDGEFIELD FCI","https://www.bop.gov/locations/institutions/edg/","FCI Edgefield","501 GARY HILL ROAD EDGEFIELD, SC 29824","Male",2045
+"ERE","T","EL RENO FCI","https://www.bop.gov/locations/institutions/ere/","FCI El Reno","4205 HIGHWAY 66 WEST EL RENO, OK 73036","Male",1195
+"ELK","T","ELKTON FCI","https://www.bop.gov/locations/institutions/elk/","FCI Elkton","8730 SCROGGS ROAD LISBON, OH 44432","Male",1918
+"ENG","T","ENGLEWOOD FCI","https://www.bop.gov/locations/institutions/eng/","FCI Englewood","9595 WEST QUINCY AVENUE LITTLETON, CO 80123","Male",969
+"EST","T","ESTILL FCI","https://www.bop.gov/locations/institutions/est/","FCI Estill","100 PRISON ROAD ESTILL, SC 29918","Male",55
+"FAI","T","FAIRTON FCI","https://www.bop.gov/locations/institutions/fai/","FCI Fairton","655 FAIRTON-MILLVILLE ROAD FAIRTON, NJ 08320","Male",800
+"FLM","T","FLORENCE ADMAX USP","https://www.bop.gov/locations/institutions/flm/","USP Florence ADMAX","5880 HWY 67 SOUTH FLORENCE, CO 81226","Male",337
+"FLF","T","FLORENCE FCI","https://www.bop.gov/locations/institutions/flf/","FCI Florence","5880 HWY 67 SOUTH FLORENCE, CO 81226","Male",1412
+"FLP","T","FLORENCE HIGH USP","https://www.bop.gov/locations/institutions/flp/","USP Florence - High","5880 HWY 67 S FLORENCE, CO 81226","Male",795
+"FOR","T","FORREST CITY FCI","https://www.bop.gov/locations/institutions/for/","FCI Forrest City Low","1400 DALE BUMPERS ROAD FORREST CITY, AR 72335","Male",1843
+"FOM","T","FORREST CITY MED FCI","https://www.bop.gov/locations/institutions/fom/","FCI Forrest City Medium","1400 DALE BUMPERS ROAD FORREST CITY, AR 72335","Male",1663
+"FTD","T","FORT DIX FCI","https://www.bop.gov/locations/institutions/ftd/","FCI Fort Dix","5756 HARTFORD & POINTVILLE RDJOINT BASE MDL, NJ 08640","Male",4088
+"FTW","T","FORT WORTH FCI","https://www.bop.gov/locations/institutions/ftw/","FMC Fort Worth","3150 HORTON ROAD FORT WORTH, TX 76119","Male",1524
+"GIL","T","GILMER FCI","https://www.bop.gov/locations/institutions/gil/","FCI Gilmer","201 FCI LANE GLENVILLE, WV 26351","Male",1442
+"GPC","T","GREAT PLAINS CI",NA,NA,NA,NA,NA
+"GRE","T","GREENVILLE FCI","https://www.bop.gov/locations/institutions/gre/","FCI Greenville","100 U.S. HWY 40 GREENVILLE, IL 62246","Male and Female",1354
+"GUA","T","GUAYNABO MDC","https://www.bop.gov/locations/institutions/gua/","MDC Guaynabo","652 CARRETERA 28 GUAYNABO, PR 00965","Male and Female",1087
+"HAF","T","HAZELTON FCI","https://www.bop.gov/locations/institutions/haf/","FCI Hazelton","1640 SKY VIEW DRIVE BRUCETON MILLS, WV 26525","Male and Female",2121
+"HAZ","T","HAZELTON USP","https://www.bop.gov/locations/institutions/haz/","USP Hazelton","1640 SKY VIEW DRIVE BRUCETON MILLS, WV 26525","Male",1424
+"HER","T","HERLONG FCI","https://www.bop.gov/locations/institutions/her/","FCI Herlong","741-925 ACCESS ROAD A-25 HERLONG, CA 96113","Male",1359
+"HON","T","HONOLULU FDC","https://www.bop.gov/locations/institutions/hon/","FDC Honolulu","351 ELLIOTT ST HONOLULU, HI 96819","Male and Female",218
+"HOU","T","HOUSTON FDC","https://www.bop.gov/locations/institutions/hou/","FDC Houston","1200 TEXAS AVENUE HOUSTON, TX 77002","Male and Female",902
+"JES","T","JESUP FCI","https://www.bop.gov/locations/institutions/jes/","FCI Jesup","2600 HIGHWAY 301 SOUTH JESUP, GA 31599","Male",1689
+"LAT","T","LA TUNA FCI","https://www.bop.gov/locations/institutions/lat/","FCI La Tuna","8500 DONIPHAN ROAD ANTHONY, TX 79821","Male",776
+"LVN","T","LEAVENWORTH USP","https://www.bop.gov/locations/institutions/lvn/","FCI Leavenworth","1300 METROPOLITAN LEAVENWORTH, KS 66048","Male",1581
+"LEE","T","LEE USP","https://www.bop.gov/locations/institutions/lee/","USP Lee","LEE COUNTY INDUSTRIAL PARK HICKORY FLATS ROADPENNINGTON GAP, VA 24277","Male",1373
+"LEW","T","LEWISBURG USP","https://www.bop.gov/locations/institutions/lew/","FCI Lewisburg","2400 ROBERT F. MILLER DRIVE LEWISBURG, PA 17837","Male",1126
+"LEX","T","LEXINGTON FMC","https://www.bop.gov/locations/institutions/lex/","FMC Lexington","3301 LEESTOWN ROAD LEXINGTON, KY 40511","Male and Female",1318
+"LIM","T","LIMESTONE DC",NA,NA,NA,NA,NA
+"LOF","T","LOMPOC FCI","https://www.bop.gov/locations/institutions/lof/","FCI Lompoc I","3600 GUARD ROAD LOMPOC, CA 93436","Male",835
+"LOM","T","LOMPOC USP","https://www.bop.gov/locations/institutions/lom/","FCI Lompoc II","3901 KLEIN BLVD LOMPOC, CA 93436","Male",2117
+"LOR","T","LORETTO FCI","https://www.bop.gov/locations/institutions/lor/","FCI Loretto","772 SAINT JOSEPH ST. LORETTO, PA 15940","Male",811
+"LOS","T","LOS ANGELES MDC","https://www.bop.gov/locations/institutions/los/","MDC Los Angeles","535 N ALAMEDA STREET LOS ANGELES, CA 90012","Male and Female",623
+"MAN","T","MANCHESTER FCI","https://www.bop.gov/locations/institutions/man/","FCI Manchester","805 FOX HOLLOW ROAD MANCHESTER, KY 40962","Male",1065
+"MNA","T","MARIANNA FCI","https://www.bop.gov/locations/institutions/mna/","FCI Marianna","3625 FCI ROAD MARIANNA, FL 32446","Male and Female",1259
+"MAR","T","MARION USP","https://www.bop.gov/locations/institutions/mar/","FCI Marion","4500 PRISON ROAD MARION, IL 62959","Male",1297
+"MCR","T","MCCREARY USP","https://www.bop.gov/locations/institutions/mcr/","USP McCreary","330 FEDERAL WAY PINE KNOT, KY 42635","Male",1516
+"MCD","T","MCDOWELL FCI","https://www.bop.gov/locations/institutions/mcd/","FCI McDowell","101 FEDERAL DRIVE WELCH, WV 24801","Male",1590
+"MCK","T","MCKEAN FCI","https://www.bop.gov/locations/institutions/mck/","FCI McKean","6975 ROUTE 59 LEWIS RUN, PA 16738","Male",1146
+"MCA","T","MCRAE CI",NA,NA,NA,NA,NA
+"MEM","T","MEMPHIS FCI","https://www.bop.gov/locations/institutions/mem/","FCI Memphis","1101 JOHN A DENIE ROAD MEMPHIS, TN 38134","Male",1116
+"MEN","T","MENDOTA FCI","https://www.bop.gov/locations/institutions/men/","FCI Mendota","33500 WEST CALIFORNIA AVENUE MENDOTA, CA 93640","Male",878
+"MIA","T","MIAMI FCI","https://www.bop.gov/locations/institutions/mia/","FCI Miami","15801 S.W. 137TH AVENUE MIAMI, FL 33177","Male",1047
+"MIM","T","MIAMI FDC","https://www.bop.gov/locations/institutions/mim/","FDC Miami","33 NE 4TH STREET MIAMI, FL 33132","Male and Female",941
+"MIL","T","MILAN FCI","https://www.bop.gov/locations/institutions/mil/","FCI Milan","4004 EAST ARKONA ROAD MILAN, MI 48160","Male",1572
+"MON","T","MONTGOMERY FPC","https://www.bop.gov/locations/institutions/mon/","FPC Montgomery","MAXWELL AIR FORCE BASE MONTGOMERY, AL 36112","Male",748
+"MRG","T","MORGANTOWN FCI","https://www.bop.gov/locations/institutions/mrg/","FPC Morgantown","446 GREENBAG ROAD, ROUTE 857 MORGANTOWN, WV 26501","Male",401
+"MVC","T","MOSHANNON VALLEY CI",NA,NA,NA,NA,NA
+"NYM","T","NEW YORK MCC","https://www.bop.gov/locations/institutions/nym/","MCC New York","150 PARK ROW NEW YORK, NY 10007","Male",0
+"OAK","T","OAKDALE I FCI","https://www.bop.gov/locations/institutions/oak/","FCI Oakdale I","1507 EAST WHATLEY ROAD OAKDALE, LA 71463","Male",993
+"OAD","T","OAKDALE II FCI","https://www.bop.gov/locations/institutions/oad/","FCI Oakdale II","2105 EAST WHATLEY ROAD OAKDALE, LA 71463","Male",1170
+"OKL","T","OKLAHOMA CITY FTC","https://www.bop.gov/locations/institutions/okl/","FTC Oklahoma City","7410 S. MACARTHUR BLVD OKLAHOMA CITY, OK 73169","Male and Female",1381
+"OTV","T","OTISVILLE FCI","https://www.bop.gov/locations/institutions/otv/","FCI Otisville","TWO MILE DRIVE OTISVILLE, NY 10963","Male",919
+"OXF","T","OXFORD FCI","https://www.bop.gov/locations/institutions/oxf/","FCI Oxford","COUNTY ROAD G & ELK AVENUE OXFORD, WI 53952","Male",1145
+"PEK","T","PEKIN FCI","https://www.bop.gov/locations/institutions/pek/","FCI Pekin","2600 S. SECOND ST. PEKIN, IL 61554","Male and Female",1319
+"PEN","T","PENSACOLA FPC","https://www.bop.gov/locations/institutions/pen/","FPC Pensacola","110 RABY AVE PENSACOLA, FL 32509","Male",450
+"PET","T","PETERSBURG FCI","https://www.bop.gov/locations/institutions/pet/","FCI Petersburg Low","1100 RIVER ROAD HOPEWELL, VA 23860","Male",606
+"PEM","T","PETERSBURG MED FCI","https://www.bop.gov/locations/institutions/pem/","FCI Petersburg Medium","1060 RIVER ROAD HOPEWELL, VA 23860","Male",1641
+"PHL","T","PHILADELPHIA FDC","https://www.bop.gov/locations/institutions/phl/","FDC Philadelphia","700 ARCH STREET PHILADELPHIA, PA 19106","Male and Female",884
+"PHX","T","PHOENIX FCI","https://www.bop.gov/locations/institutions/phx/","FCI Phoenix","37900 N 45TH AVE PHOENIX, AZ 85086","Male and Female",1150
+"POM","T","POLLOCK MED FCI","https://www.bop.gov/locations/institutions/pom/","FCI Pollock","1000 AIRBASE ROAD POLLOCK, LA 71467","Male",1726
+"POL","T","POLLOCK USP","https://www.bop.gov/locations/institutions/pol/","USP Pollock","1000 AIRBASE ROAD POLLOCK, LA 71467","Male",1098
+"RBK","T","RAY BROOK FCI","https://www.bop.gov/locations/institutions/rbk/","FCI Ray Brook","128 RAY BROOK ROAD RAY BROOK, NY 12977","Male",786
+"REE","T","REEVES CI",NA,NA,NA,NA,NA
+"RVS","T","REEVES DC",NA,NA,NA,NA,NA
+"RIV","T","RIVERS CI",NA,NA,NA,NA,NA
+"RCH","T","ROCHESTER FMC","https://www.bop.gov/locations/institutions/rch/","FMC Rochester","2110 EAST CENTER STREET ROCHESTER, MN 55904","Male",786
+"SAF","T","SAFFORD FCI","https://www.bop.gov/locations/institutions/saf/","FCI Safford","1529 WEST HIGHWAY 366 SAFFORD, AZ 85546","Male",683
+"SDC","T","SAN DIEGO MCC","https://www.bop.gov/locations/institutions/sdc/","MCC San Diego","808 UNION STREET SAN DIEGO, CA 92101","Male and Female",771
+"SST","T","SANDSTONE FCI","https://www.bop.gov/locations/institutions/sst/","FCI Sandstone","2300 COUNTY RD 29 SANDSTONE, MN 55072","Male",1197
+"SCH","T","SCHUYLKILL FCI","https://www.bop.gov/locations/institutions/sch/","FCI Schuylkill","INTERSTATE 81 & 901 W MINERSVILLE, PA 17954","Male",1171
+"SEA","T","SEAGOVILLE FCI","https://www.bop.gov/locations/institutions/sea/","FCI Seagoville","2113 NORTH HWY 175 SEAGOVILLE, TX 75159","Male",1739
+"SET","T","SEATAC FDC","https://www.bop.gov/locations/institutions/set/","FDC SeaTac","2425 SOUTH 200TH STREET SEATTLE, WA 98198","Male and Female",675
+"SHE","T","SHERIDAN FCI","https://www.bop.gov/locations/institutions/she/","FCI Sheridan","27072 BALLSTON ROAD SHERIDAN, OR 97378","Male",1547
+"SPG","T","SPRINGFIELD USMCFP","https://www.bop.gov/locations/institutions/spg/","MCFP Springfield","1900 W. SUNSHINE ST SPRINGFIELD, MO 65807","Male",1082
+"TAF","T","TAFT CI",NA,NA,NA,NA,NA
+"TDG","T","TALLADEGA FCI","https://www.bop.gov/locations/institutions/tdg/","FCI Talladega","565 EAST RENFROE ROAD TALLADEGA, AL 35160","Male",1179
+"TAL","T","TALLAHASSEE FCI","https://www.bop.gov/locations/institutions/tal/","FCI Tallahassee","501 CAPITAL CIRCLE, NE TALLAHASSEE, FL 32301","Male and Female",1128
+"TRM","T","TERMINAL ISLAND FCI","https://www.bop.gov/locations/institutions/trm/","FCI Terminal Island","1299 SEASIDE AVENUE SAN PEDRO, CA 90731","Male",973
+"THA","T","TERRE HAUTE FCI","https://www.bop.gov/locations/institutions/tha/","FCI Terre Haute","4200 BUREAU ROAD NORTH TERRE HAUTE, IN 47808","Male",1231
+"THP","T","TERRE HAUTE USP","https://www.bop.gov/locations/institutions/thp/","USP Terre Haute","4700 BUREAU ROAD SOUTH TERRE HAUTE, IN 47802","Male",1294
+"TEX","T","TEXARKANA FCI","https://www.bop.gov/locations/institutions/tex/","FCI Texarkana","4001 LEOPARD DRIVE TEXARKANA, TX 75501","Male",1322
+"TOM","T","THOMSON ADMIN USP","https://www.bop.gov/locations/institutions/tom/","FCI Thomson","1100 ONE MILE ROAD THOMSON, IL 61285","Male",1941
+"TRV","T","THREE RIVERS FCI","https://www.bop.gov/locations/institutions/trv/","FCI Three Rivers","US HIGHWAY 72 WEST THREE RIVERS, TX 78071","Male",1266
+"TCN","T","TUCSON FCI","https://www.bop.gov/locations/institutions/tcn/","FCI Tucson","8901 S. WILMOT ROAD TUCSON, AZ 85756","Male and Female",415
+"TCP","T","TUCSON USP","https://www.bop.gov/locations/institutions/tcp/","USP Tucson","9300 SOUTH WILMOT ROAD TUCSON, AZ 85756","Male",1226
+"VIM","T","VICTORVILLE MED I FCI","https://www.bop.gov/locations/institutions/vim/","FCI Victorville Medium I","13777 AIR EXPRESSWAY BLVD VICTORVILLE, CA 92394","Male and Female",1699
+"VVM","T","VICTORVILLE MED II FCI","https://www.bop.gov/locations/institutions/vvm/","FCI Victorville Medium II","13777 AIR EXPRESSWAY BLVD VICTORVILLE, CA 92394","Male",1556
+"VIP","T","VICTORVILLE USP","https://www.bop.gov/locations/institutions/vip/","USP Victorville","13777 AIR EXPRESSWAY BLVD VICTORVILLE, CA 92394","Male",1225
+"WAS","T","WASECA FCI","https://www.bop.gov/locations/institutions/was/","FCI Waseca","1000 UNIVERSITY DR, SW WASECA, MN 56093","Female",905
+"WIL","T","WILLIAMSBURG FCI","https://www.bop.gov/locations/institutions/wil/","FCI Williamsburg","8301 HIGHWAY 521 SALTERS, SC 29590","Male",1372
+"YAN","T","YANKTON FPC","https://www.bop.gov/locations/institutions/yan/","FPC Yankton","1016 DOUGLAS AVENUE YANKTON, SD 57078","Male",489
+"YAZ","T","YAZOO CITY FCI","https://www.bop.gov/locations/institutions/yaz/","FCI Yazoo City Low","2225 HALEY BARBOUR PARKWAY YAZOO CITY, MS 39194","Male",1373
+"YAM","T","YAZOO CITY MED FCI","https://www.bop.gov/locations/institutions/yam/","FCI Yazoo City Low II","2225 HALEY BARBOUR PARKWAY YAZOO CITY, MS 39194","Male",1333
+"YAP","T","YAZOO CITY USP","https://www.bop.gov/locations/institutions/yap/","FCI Yazoo City Medium","2225 HALEY BARBOUR PKWY YAZOO CITY, MS 39194","Male",1478
