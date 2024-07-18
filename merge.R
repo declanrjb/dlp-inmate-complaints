@@ -169,19 +169,28 @@ df <- df %>% select(Case_Number,
                     sitdtrcv,
                     Status_Reasons)
 
-df_2000_09 <- df %>% 
-  filter(year(sitdtrcv) %in% 2000:2009)
 
-df_2010_19 <- df %>% 
-  filter(year(sitdtrcv) %in% 2010:2019)
+# write out into chunks to lower file size
+df %>% 
+  filter(year(sitdtrcv) %in% 2000:2004) %>%
+  write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
 
-df_2020_24 <- df %>% 
-  filter(year(sitdtrcv) %in% 2020:2024)
+df %>% 
+  filter(year(sitdtrcv) %in% 2005:2009) %>%
+  write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
+
+df %>% 
+  filter(year(sitdtrcv) %in% 2010:2014) %>%
+  write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
+
+df %>% 
+  filter(year(sitdtrcv) %in% 2015:2019) %>%
+  write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
+
+df %>% 
+  filter(year(sitdtrcv) %in% 2020:2024) %>%
+  write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
 
 write.csv(df,'clean_data/all_complaint-filings_clean.csv',row.names=FALSE, na='')
-
-write.csv(df_2000_09,'clean_data/complaint-filings_2000-2009_clean.csv',row.names=FALSE, na='')
-write.csv(df_2010_19,'clean_data/complaint-filings_2010-2019_clean.csv',row.names=FALSE, na='')
-write.csv(df_2020_24,'clean_data/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
 
 
