@@ -21,3 +21,5 @@ for this data were also retained.
 
 # Further Work
 Immediate next steps will be to scrape futher geographic and descriptive information about each facility from BOP webpages such as https://www.bop.gov/locations/institutions/ald/ and bind them in using the facility codes.
+
+Facility information obtained from most fac codes in current use, but further scraping will be required to get information for old fac codes stored in raw_data/bop-facility-codes-scraped.csv
