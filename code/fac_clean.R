@@ -1,4 +1,4 @@
-source('functions.R')
+source('code/functions.R')
 
 fac_codes <- read_csv('raw_data/facility-codes.csv')
 fac_data <- read_csv('data_processing/fac_all_data_raw.csv')
@@ -24,16 +24,18 @@ fac_df <- fac_df %>%
          Fac_Address) %>%
   filter(!is.na(Fac_Address))
 
-osm_coded <- fac_df %>%
-  geocode(address = Fac_Address, method = "osm", verbose = TRUE)
-
 census_coded <- fac_df %>%
   geocode(address = Fac_Address, method = "census", verbose = TRUE)
+census_coded['fac_coords_method'] <- 'U.S. Census'
 
 census_missing <- census_coded %>% filter(is.na(lat)) %>% pull(facility_code)
 
+osm_coded <- fac_df %>%
+  filter(facility_code %in% census_missing) %>%
+  geocode(address = Fac_Address, method = "osm", verbose = TRUE)
+osm_coded['fac_coords_method'] <- 'Open Street Maps (OSM)'
+
 osm_fixed <- osm_coded %>% 
-  filter(facility_code %in% census_missing) %>% 
   filter(!is.na(lat)) %>% 
   pull(facility_code)
 
