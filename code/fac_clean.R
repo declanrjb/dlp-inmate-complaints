@@ -26,14 +26,14 @@ fac_df <- fac_df %>%
 
 census_coded <- fac_df %>%
   geocode(address = Fac_Address, method = "census", verbose = TRUE)
-census_coded['fac_coords_method'] <- 'U.S. Census'
+census_coded['Fac_Coords_Method'] <- 'U.S. Census'
 
 census_missing <- census_coded %>% filter(is.na(lat)) %>% pull(facility_code)
 
 osm_coded <- fac_df %>%
   filter(facility_code %in% census_missing) %>%
   geocode(address = Fac_Address, method = "osm", verbose = TRUE)
-osm_coded['fac_coords_method'] <- 'Open Street Maps (OSM)'
+osm_coded['Fac_Coords_Method'] <- 'Open Street Maps (OSM)'
 
 osm_fixed <- osm_coded %>% 
   filter(!is.na(lat)) %>% 
@@ -66,11 +66,13 @@ fac_df <- fac_df %>%
          lat,
          long,
          city,
-         state)
+         state,
+         Fac_Coords_Method)
 
 colnames(fac_df) <- str_to_title(colnames(fac_df))
 fac_df <- fac_df %>% 
   rename(Facility_Name = Facility_name) %>%
-  rename(Facility_Address = Fac_address)
+  rename(Facility_Address = Fac_address) %>% 
+  rename(Fac_Coords_Method = Fac_coords_method)
 
 write.csv(fac_df,'clean_data/facilities/facility-locations.csv',row.names=FALSE)
