@@ -193,4 +193,9 @@ df %>%
 
 write.csv(df,'clean_data/all_complaint-filings_clean.csv',row.names=FALSE, na='')
 
+facility_info <- read_csv('clean_data/facilities/facility-locations.csv')
 
+# 78% coverage on lat long
+# 97% on city and state
+df <- left_join(df,facility_info,by=c('Facility_Occurred' = 'Facility_Name'))
+write.csv(df,'clean_data/all_complaint-filings_with-locations.csv',row.names=FALSE)

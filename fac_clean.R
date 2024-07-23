@@ -71,4 +71,4 @@ fac_df <- fac_df %>%
   rename(Facility_Name = Facility_name) %>%
   rename(Facility_Address = Fac_address)
 
-write.csv(fac_df,'clean_data/facilities/facility-locations.csv')
+write.csv(fac_df,'clean_data/facilities/facility-locations.csv',row.names=FALSE)

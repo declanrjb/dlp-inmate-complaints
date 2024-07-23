@@ -52,3 +52,6 @@ raw_data/complaint-filings.csv
 clean_data/all_complaint-filings_clean.csv
 clean_data/complaint-filings_2000-2009_clean.csv
 clean_data/complaint-filings_2010-2019_clean.csv
+clean_data/all_complaint-filings_with-locations.csv
+
+.DS_Store
