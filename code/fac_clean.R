@@ -4,12 +4,16 @@ fac_codes <- read_csv('raw_data/facility-codes.csv')
 fac_data <- read_csv('data_processing/fac_all_data_raw.csv')
 arch_fac_data <- read_csv('raw_data/bop-facility-codes-scraped.csv')
 
+# BOP official facility coordinates obtained from header of HTML page at https://www.bop.gov/locations/map.jsp
+# raw in raw_data/locations_raw.txt
+# converted from JSON-like text to CSV using https://konklone.io/json/
+# loaded as csv and cleaned here
+
 # clean up BOP's version of the location data
 fac_locations <- read_csv('data_processing/fac_locations_official/locations_converted.csv')
 colnames(fac_locations) <- colnames(fac_locations) %>% gsub('0/','',.)
 fac_locations <- fac_locations %>%
   select(code,latitude,longitude)
-
 
 # bring in initial fac data
 fac_df <- left_join(fac_codes,fac_data,by=c('facility_code' = 'Code'))
