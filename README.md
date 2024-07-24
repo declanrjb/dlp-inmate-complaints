@@ -1,6 +1,11 @@
 # Overview
 Initial stages of volunteer data cleaning for the Data Liberation Project's Federal Inmate Complaints dataset.
 
+To reproduce:
+1) Navigate to start_here.R in the home directory
+2) Run it
+3) See code comments for description of various subscripts
+
 # Large Files
 Drive folder with large files that cannot be stored on GitHub
 https://drive.google.com/drive/folders/1yhVTG_iZfAWIbg349VBOGRQkMGYL79Za?usp=sharing

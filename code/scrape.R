@@ -1,4 +1,4 @@
-source('functions.R')
+source('code/functions.R')
 
 fac_codes <- read_csv('raw_data/facility-codes.csv')
 
@@ -38,17 +38,14 @@ fac_urls_df$URL <- fac_urls_df$URL %>% paste('https://www.bop.gov',.,sep='')
 
 fac_data <- fac_urls_df$URL %>% lapply(scrape_facility)
 
-
 fac_data_df <- fac_data %>% do.call(rbind,.)
-
-fac_urls_df <- read_csv('fac_urls_df.csv')
 
 fac_df <- left_join(fac_urls_df,fac_data_df,by=c('Code' = 'Fac_Code'))
 
 # looping fix for names
 i <-0
 
-while (((length(which(is.na(fac_df$Fac_Name))) > 0) | (length(which(str_length(fac_df$Fac_Name) == 0)) > 0)) & (i <= 10)) {
+while (((length(which(is.na(fac_df$Fac_Name))) > 0) | (length(which(str_length(fac_df$Fac_Name) == 0)) > 0)) & (i <= 5)) {
   message(i)
   incompletes <- fac_df %>% filter(is.na(Fac_Name) | (str_length(Fac_Name) == 0))
   incomps_fix <- incompletes %>% 
@@ -66,7 +63,7 @@ while (((length(which(is.na(fac_df$Fac_Name))) > 0) | (length(which(str_length(f
 # looping fix for addresses
 i <-0
 
-while ((length(which(fac_df$Fac_Address == ',')) > 0) & (i <= 10)) {
+while ((length(which(fac_df$Fac_Address == ',')) > 0) & (i <= 5)) {
   message(i)
   incompletes <- fac_df %>% filter(Fac_Address == ',')
   incomps_fix <- incompletes %>% 
