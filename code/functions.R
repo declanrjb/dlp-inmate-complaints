@@ -4,6 +4,7 @@ library(httr2)
 library(RCurl)
 library(tidygeocoder)
 library(zipcodeR)
+library(arrow)
 
 paste_not_na <- function(vec) {
   vec <- vec[!is.na(vec)]

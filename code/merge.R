@@ -192,6 +192,7 @@ df %>%
   write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
 
 write.csv(df,'clean_data/all_complaint-filings_clean.csv',row.names=FALSE, na='')
+df %>% write_parquet('clean_data/parquet_form/all_complaint-filings_clean.parquet')
 
 facility_info <- read_csv('clean_data/facilities/facility-locations.csv')
 
@@ -199,3 +200,4 @@ facility_info <- read_csv('clean_data/facilities/facility-locations.csv')
 # 97% on city and state
 df <- left_join(df,facility_info,by=c('Facility_Occurred' = 'Facility_Name'))
 write.csv(df,'clean_data/all_complaint-filings_with-locations.csv',row.names=FALSE)
+df %>% write_parquet('clean_data/parquet_form/all_complaint-filings_with-locations.parquet')
