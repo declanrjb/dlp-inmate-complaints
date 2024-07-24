@@ -1,5 +1,5 @@
 library(tidyverse)
-source('functions.R')
+source('code/functions.R')
 
 # overview
 # reduced 37 columns to 19 by eliminating redundancies
