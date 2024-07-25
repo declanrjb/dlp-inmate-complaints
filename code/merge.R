@@ -5,7 +5,10 @@ source('code/functions.R')
 # reduced 37 columns to 19 by eliminating redundancies
 # bound in 
 
-df <- read_csv('raw_data/complaint-filings.csv')
+#df <- read_csv('raw_data/complaint-filings.csv')
+#df %>% write_parquet('raw_data/complaint-filings.parquet')
+
+df <- read_parquet('raw_data/complaint-filings.parquet')
 
 facilities_df <- read_csv('raw_data/facility-codes.csv')
 facility_names <- facilities_df %>% select(facility_code,facility_name)
