@@ -58,7 +58,6 @@ census_missing <- census_coded %>% filter(is.na(lat)) %>% pull(facility_code)
 
 census_coded <- rbind(official_locations_df,
                       census_coded %>% 
-                        filter(!(facility_code %in% osm_fixed)) %>%
                         filter(!(facility_code %in% official_locations_df$facility_code)))
 
 fac_df <- census_coded %>% 
