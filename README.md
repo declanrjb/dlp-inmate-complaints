@@ -6,6 +6,11 @@ To reproduce:
 2) Run it
 3) See code comments for description of various subscripts
 
+# Locations
+Found this https://www.corecivic.com/facilities
+Appears to show locations of private prisons that match some of the records in the complaints dataset
+Going to attempt a download and merge to find out how much they overlap
+
 # Large Files
 Drive folder with large files that cannot be stored on GitHub
 https://drive.google.com/drive/folders/1yhVTG_iZfAWIbg349VBOGRQkMGYL79Za?usp=sharing

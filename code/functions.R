@@ -94,3 +94,38 @@ scrape_facility <- function(url) {
   return(fac_details)
 }
 
+generate_search_url <- function(fac_name) {
+  'https://www.corecivic.com/facilities?state=All&hs_name=' %>%
+    paste(fac_name,sep='') %>%
+    gsub(' ','+',.) %>%
+    return()
+}
+
+priv_facility_url <- function(search_url) {
+  search_url %>%
+    read_html() %>%
+    html_nodes('.facility') %>% 
+    .[1] %>% 
+    html_attr('href') %>% 
+    return()
+}
+
+priv_fac_address <- function(fac_url) {
+  fac_url %>%
+    read_html() %>% 
+    html_nodes('.address') %>% 
+    .[1] %>% 
+    html_text() %>% 
+    gsub('Get Directions to this Facility','',.)  %>% 
+    str_squish() %>%
+    return()
+}
+
+priv_fac_official_name <- function(fac_url) {
+  fac_url %>%
+    read_html() %>%
+    html_nodes('h1[itemprop="name"]') %>% 
+    html_text() %>% 
+    str_squish() %>%
+    return()
+}
