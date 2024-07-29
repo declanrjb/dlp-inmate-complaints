@@ -14,12 +14,6 @@ facilities_df <- read_csv('raw_data/facility-codes.csv')
 facility_names <- facilities_df %>% select(facility_code,facility_name)
 subject_codes <- read_csv('raw_data/subject-codes.csv')
 
-# OTH collapsed to 'OTHER* / SEE REMARKS'
-# this should be reflected clearly in the documentation
-status_reason_codes <- read_csv('raw_data/status_reason_codes.csv')
-
-status_reason_codes$STATUS_REASON <- paste(status_reason_codes$STATUS_REASON,' (',status_reason_codes$STATUS_CODE,')',sep='')
-
 df <- df %>% rename(Case_Number = CASENBR)
 
 # replace level codes with human readable org levels
@@ -132,35 +126,6 @@ df <- df %>%
 # choosing to keep comptime. It derives from sitdtrcv and sdtstat, but seems so manifestly useful
 # that removing it would simply create extra work for most analysts
 
-# bind in the human readable status reasons
-# reverted to reduce file size
-# df <- df %>% left_join(status_reason_codes,
-#                  by=c('STAT_RSON_1' = 'STATUS_CODE')) %>%
-#   select(!STAT_RSON_1) %>%
-#   rename(STAT_RSON_1 = STATUS_REASON)
-# 
-# df <- df %>% left_join(status_reason_codes,
-#                        by=c('STAT_RSON_2' = 'STATUS_CODE')) %>%
-#   select(!STAT_RSON_2) %>%
-#   rename(STAT_RSON_2 = STATUS_REASON)
-# 
-# df <- df %>% left_join(status_reason_codes,
-#                        by=c('STAT_RSON_3' = 'STATUS_CODE')) %>%
-#   select(!STAT_RSON_3) %>%
-#   rename(STAT_RSON_3 = STATUS_REASON)
-# 
-# df <- df %>% left_join(status_reason_codes,
-#                        by=c('STAT_RSON_4' = 'STATUS_CODE')) %>%
-#   select(!STAT_RSON_4) %>%
-#   rename(STAT_RSON_4 = STATUS_REASON)
-# 
-# df <- df %>% left_join(status_reason_codes,
-#                        by=c('STAT_RSON_5' = 'STATUS_CODE')) %>%
-#   select(!STAT_RSON_5) %>%
-#   rename(STAT_RSON_5 = STATUS_REASON)
-
-# collapse status reasons to a single column
-#df <- df %>% select(!Status_Reasons)
 df <- df %>%
   select(!STAT_RSON_1) %>%
   select(!STAT_RSON_2) %>%
