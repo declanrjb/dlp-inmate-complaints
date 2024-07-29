@@ -81,7 +81,8 @@ fac_df <- fac_df %>%
 fac_df <- left_join(fac_codes,fac_df,by=c('facility_code','facility_name'))
 
 fac_df <- fac_df %>%
-  select(facility_name,
+  select(facility_code,
+         facility_name,
          Fac_Address,
          lat,
          long,
@@ -93,6 +94,7 @@ colnames(fac_df) <- str_to_title(colnames(fac_df))
 fac_df <- fac_df %>% 
   rename(Facility_Name = Facility_name) %>%
   rename(Facility_Address = Fac_address) %>% 
-  rename(Fac_Coords_Method = Fac_coords_method)
+  rename(Fac_Coords_Method = Fac_coords_method) %>%
+  rename(Facility_Code = Facility_code)
 
 write.csv(fac_df,'clean_data/facilities/facility-locations.csv',row.names=FALSE)

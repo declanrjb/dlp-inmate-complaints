@@ -37,6 +37,16 @@ df <- left_join(df,
   rename(Facility_Occurred_CODE = CDFCLEVN)
 # where no name translation is available, use the code. Otherwise use the name
 df['Facility_Occurred'] <- ifelse(is.na(df$Facility_Occurred_NM), df$Facility_Occurred_CODE, df$Facility_Occurred_NM)
+
+
+# bind in facility locations
+facility_info <- read_csv('clean_data/facilities/facility-locations.csv')
+
+# 78% coverage on lat long
+# 97% on city and state
+df <- left_join(df,facility_info,by=c('Facility_Occurred_CODE' = 'Facility_Code'))
+
+
 # drop the two input columns, having collapsed them
 df <- df %>% 
   select(!Facility_Occurred_CODE) %>%
@@ -170,37 +180,38 @@ df <- df %>% select(Case_Number,
                     sdtdue,
                     sdtstat,
                     sitdtrcv,
-                    Status_Reasons)
+                    Status_Reasons,
+                    Facility_Address,
+                    Lat,
+                    Long,
+                    City,
+                    State,
+                    Fac_Coords_Method)
 
 
 # write out into chunks to lower file size
-df %>% 
-  filter(year(sitdtrcv) %in% 2000:2004) %>%
-  write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
+#df %>% 
+  #filter(year(sitdtrcv) %in% 2000:2004) %>%
+  #write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
 
-df %>% 
-  filter(year(sitdtrcv) %in% 2005:2009) %>%
-  write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
+#df %>% 
+  #filter(year(sitdtrcv) %in% 2005:2009) %>%
+  #write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
 
-df %>% 
-  filter(year(sitdtrcv) %in% 2010:2014) %>%
-  write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
+#df %>% 
+  #filter(year(sitdtrcv) %in% 2010:2014) %>%
+  #write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
 
-df %>% 
-  filter(year(sitdtrcv) %in% 2015:2019) %>%
-  write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
+#df %>% 
+  #filter(year(sitdtrcv) %in% 2015:2019) %>%
+  #write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
 
-df %>% 
-  filter(year(sitdtrcv) %in% 2020:2024) %>%
-  write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
+#df %>% 
+  #filter(year(sitdtrcv) %in% 2020:2024) %>%
+  #write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
 
 write.csv(df,'clean_data/all_complaint-filings_clean.csv',row.names=FALSE, na='')
 df %>% write_parquet('clean_data/parquet_form/all_complaint-filings_clean.parquet')
 
-facility_info <- read_csv('clean_data/facilities/facility-locations.csv')
-
-# 78% coverage on lat long
-# 97% on city and state
-df <- left_join(df,facility_info,by=c('Facility_Occurred' = 'Facility_Name'))
 write.csv(df,'clean_data/all_complaint-filings_with-locations.csv',row.names=FALSE)
 df %>% write_parquet('clean_data/parquet_form/all_complaint-filings_with-locations.parquet')
