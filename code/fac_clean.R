@@ -4,18 +4,21 @@ fac_codes <- read_csv("raw_data/facility-codes.csv")
 fac_data <- read_csv("data_processing/fac_all_data_raw.csv")
 arch_fac_data <- read_csv("raw_data/bop-facility-codes-scraped.csv")
 
-# BOP official facility coordinates obtained from header of HTML page at https://www.bop.gov/locations/map.jsp
-# raw in raw_data/locations_raw.txt
+# BOP official facility coordinates obtained from header of HTML page
+# at https://www.bop.gov/locations/map.jsp
+# 
+# Raw results stored in in raw_data/locations_raw.txt and then
 # converted from JSON-like text to CSV using https://konklone.io/json/
-# loaded as csv and cleaned here
+# 
+# Loaded as CSV and cleaned here.
 
-# clean up BOP's version of the location data
+# Clean up BOP's version of the location data
 fac_locations <- read_csv("data_processing/fac_locations_official/locations_converted.csv")
 colnames(fac_locations) <- colnames(fac_locations) %>% gsub("0/", "", .)
 fac_locations <- fac_locations %>%
   select(code, latitude, longitude)
 
-# bring in initial fac data
+# Bring in initial fac data
 fac_df <- left_join(fac_codes, fac_data, by = c("facility_code" = "Code"))
 
 fac_df <- fac_df %>%
@@ -27,7 +30,7 @@ fac_df <- fac_df %>%
 
 fac_df <- left_join(fac_df, fac_locations, by = c("facility_code" = "code"))
 
-# this only gets a 60% coverage rate
+# This only gets a 60% coverage rate
 official_locations_df <- fac_df %>%
   filter(!is.na(latitude)) %>%
   rename(lat = latitude) %>%
@@ -42,7 +45,7 @@ fac_df <- fac_df %>%
     Fac_Address
   )
 
-# geocoding
+# Geocoding
 census_coded <- fac_df %>%
   geocode(address = Fac_Address, method = "census", verbose = TRUE)
 census_coded["Fac_Coords_Method"] <- "U.S. Census"
@@ -50,17 +53,6 @@ census_coded["Fac_Coords_Method"] <- "U.S. Census"
 census_missing <- census_coded %>%
   filter(is.na(lat)) %>%
   pull(facility_code)
-
-# didn't add any new coords on last run. appears official addresses + census geocoding cover all that this can handle
-# OSM doesn't add anything new
-# osm_coded <- fac_df %>%
-# filter(facility_code %in% census_missing) %>%
-# geocode(address = Fac_Address, method = "osm", verbose = TRUE)
-# osm_coded['Fac_Coords_Method'] <- 'Open Street Maps (OSM)'
-
-# osm_fixed <- osm_coded %>%
-# filter(!is.na(lat)) %>%
-# pull(facility_code)
 
 census_coded <- rbind(
   official_locations_df,
@@ -71,7 +63,7 @@ census_coded <- rbind(
 fac_df <- census_coded %>%
   filter(!is.na(lat))
 
-# additional address cleaning
+# Additional address cleaning
 fac_df["zipcode"] <- fac_df %>%
   pull(Fac_Address) %>%
   str_split_i(" ", -1)

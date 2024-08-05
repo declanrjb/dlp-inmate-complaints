@@ -1,13 +1,6 @@
 library(tidyverse)
 source("code/functions.R")
 
-# overview
-# reduced 37 columns to 19 by eliminating redundancies
-# bound in
-
-# df <- read_csv('raw_data/complaint-filings.csv')
-# df %>% write_parquet('raw_data/complaint-filings.parquet')
-
 df <- read_parquet("raw_data/complaint-filings.parquet")
 
 facilities_df <- read_csv("raw_data/facility-codes.csv")
@@ -16,7 +9,7 @@ subject_codes <- read_csv("raw_data/subject-codes.csv")
 
 df <- df %>% rename(Case_Number = CASENBR)
 
-# replace level codes with human readable org levels
+# Replace level codes with human readable org levels
 df <- df %>%
   mutate(
     Org_Level = gsub("F", "Facility", ITERLVL),
@@ -25,17 +18,19 @@ df <- df %>%
   ) %>%
   select(!ITERLVL)
 
-# bind in facility occurred names
+# Bind in facility occurred names
 df <- left_join(df,
   facility_names %>% rename(Facility_Occurred_NM = facility_name),
   by = c("CDFCLEVN" = "facility_code")
 ) %>%
   rename(Facility_Occurred_CODE = CDFCLEVN)
-# where no name translation is available, use the code. Otherwise use the name
+
+# Where no name translation is available, use the code;
+# otherwise use the name.
 df["Facility_Occurred"] <- ifelse(is.na(df$Facility_Occurred_NM), df$Facility_Occurred_CODE, df$Facility_Occurred_NM)
 
 
-# bind in facility locations
+# Bind in facility locations
 facility_info <- read_csv("clean_data/facilities/facility-locations.csv")
 
 # 78% coverage on lat long
@@ -43,25 +38,27 @@ facility_info <- read_csv("clean_data/facilities/facility-locations.csv")
 df <- left_join(df, facility_info, by = c("Facility_Occurred_CODE" = "Facility_Code"))
 
 
-# drop the two input columns, having collapsed them
+# Drop the two input columns, having collapsed them
 df <- df %>%
   select(!Facility_Occurred_CODE) %>%
   select(!Facility_Occurred_NM)
 
-# bind in facility received name
+# Bind in facility received name
 df <- left_join(df,
   facility_names %>% rename(Facility_Received_NM = facility_name),
   by = c("CDFCLRCV" = "facility_code")
 ) %>%
   rename(Facility_Received_CODE = CDFCLRCV)
-# where no name translation is available, use the code. Otherwise use the name
+
+# Where no name translation is available, use the code. Otherwise use the name
 df["Facility_Received"] <- ifelse(is.na(df$Facility_Received_NM), df$Facility_Received_CODE, df$Facility_Received_NM)
-# drop the two input columns, having collapsed them
+
+# Drop the two input columns, having collapsed them
 df <- df %>%
   select(!Facility_Received_CODE) %>%
   select(!Facility_Received_NM)
 
-# translate status code to human readable, then drop redundant binary columns
+# Translate status code to human readable, then drop redundant binary columns
 df <- df %>%
   mutate(
     Case_Status = gsub("ACC", "Accepted", CDSTATUS),
@@ -77,10 +74,10 @@ df <- df %>%
   select(!grant) %>%
   select(!accept)
 
-# translate to human readable column name
+# Translate to human readable column name
 df <- df %>% rename(Received_Office = CDOFCRCV)
 
-# translate to human readable column names
+# Translate to human readable column names
 df <- df %>%
   rename(STAT_RSON_1 = STATRSN1) %>%
   rename(STAT_RSON_2 = STATRSN2) %>%
@@ -88,7 +85,7 @@ df <- df %>%
   rename(STAT_RSON_4 = STATRSN4) %>%
   rename(STAT_RSON_5 = STATRSN5)
 
-# join in primary and secondary descriptions and then drop redundant columns
+# Join in primary and secondary descriptions and then drop redundant columns
 df <- df %>%
   left_join(subject_codes %>% select(code, primary_desc, secondary_desc),
     by = c("cdsub1cb" = "code")
@@ -99,16 +96,13 @@ df <- df %>%
   select(!CDSUB1SC) %>%
   select(!cdsub1cb)
 
-# unnecessary column, value is 1 for all rows in dataset
+# Unnecessary column, value is 1 for all rows in dataset
 df <- df %>% select(!submit)
 
-# derive from Case_Status (CDSTATUS). See docs
+# Derive from Case_Status (CDSTATUS). See docs
 df <- df %>%
   select(!filed) %>%
   select(!closed)
-
-# add units for clarity
-df <- df %>% select(!comptime)
 
 df["Status_Reasons"] <- df[, which(colnames(df) %in% c(
   "STAT_RSON_1",
@@ -119,8 +113,9 @@ df["Status_Reasons"] <- df[, which(colnames(df) %in% c(
 ))] %>%
   apply(1, paste_not_na)
 
-# remove redundant / obscure columns
+# Remove redundant / obscure columns
 df <- df %>%
+  select(!comptime) %>%
   select(!diffreg_filed) %>%
   select(!diffinst) %>%
   select(!timely) %>%
@@ -133,9 +128,6 @@ df <- df %>%
   select(!diffreg_answer) %>%
   select(!overdue)
 
-# choosing to keep comptime. It derives from sitdtrcv and sdtstat, but seems so manifestly useful
-# that removing it would simply create extra work for most analysts
-
 df <- df %>%
   select(!STAT_RSON_1) %>%
   select(!STAT_RSON_2) %>%
@@ -143,7 +135,7 @@ df <- df %>%
   select(!STAT_RSON_4) %>%
   select(!STAT_RSON_5)
 
-# rearrange columns for readability
+# Rearrange columns for readability
 df <- df %>% select(
   Case_Number,
   Case_Status,
