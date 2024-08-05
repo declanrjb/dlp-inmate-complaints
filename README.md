@@ -1,11 +1,6 @@
 # Overview
 Initial stages of volunteer data cleaning for the Data Liberation Project's Federal Inmate Complaints dataset.
 
-To reproduce:
-1) Navigate to start_here.R in the home directory
-2) Run it
-3) See code comments for description of various subscripts
-
 # Locations
 Found this https://www.corecivic.com/facilities
 Appears to show locations of private prisons that match some of the records in the complaints dataset
@@ -33,3 +28,25 @@ for this data were also retained.
 Immediate next steps will be to scrape futher geographic and descriptive information about each facility from BOP webpages such as https://www.bop.gov/locations/institutions/ald/ and bind them in using the facility codes.
 
 Facility information obtained from most fac codes in current use, but further scraping will be required to get information for old fac codes stored in raw_data/bop-facility-codes-scraped.csv
+
+# Code
+
+The `code` directory contains the following scripts:
+
+- `scrape.R`: Scrapes facility information from [BOP's website](https://www.bop.gov/mobile/locations/). 
+- `fac_clean.R`: Creates `clean_data/facilities/facility-locations.csv`, based on data provided by BOP via FOIA and online, as well as ZIP code metadata and geocoding results.
+- `merge.R`: Reads the raw complaints data, merges it with the facility data, expands status and subject codes, and removes redundant columns, writing the results to output files in `clean_data`. 
+- `private_facs.R`: A work in progress to obtain information about privately-run facilities; not yet used in the results.
+- `functions.R`: Contains various helper functions used in the scripts above.
+
+# Reproducibility
+
+The code in this repository requires `R` to be installed on your computer.
+
+To run the main data cleaning and merging steps, run `make data` or:
+
+```sh
+Rscript code/fac_clean.R
+Rscript code/merge.R
+```
+
