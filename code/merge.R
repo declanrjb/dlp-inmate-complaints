@@ -152,29 +152,23 @@ df <- df %>% select(
 )
 
 
-# write out into chunks to lower file size
-# df %>%
-# filter(year(sitdtrcv) %in% 2000:2004) %>%
-# write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
+# Write out into chunks to lower file size
+df %>%
+  filter(year(sitdtrcv) %in% 2000:2004) %>%
+  write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
 
-# df %>%
-# filter(year(sitdtrcv) %in% 2005:2009) %>%
-# write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
+df %>%
+  filter(year(sitdtrcv) %in% 2005:2009) %>%
+  write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
 
-# df %>%
-# filter(year(sitdtrcv) %in% 2010:2014) %>%
-# write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
+df %>%
+  filter(year(sitdtrcv) %in% 2010:2014) %>%
+  write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
 
-# df %>%
-# filter(year(sitdtrcv) %in% 2015:2019) %>%
-# write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
+df %>%
+  filter(year(sitdtrcv) %in% 2015:2019) %>%
+  write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
 
-# df %>%
-# filter(year(sitdtrcv) %in% 2020:2024) %>%
-# write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
-
-write.csv(df, "clean_data/all_complaint-filings_clean.csv", row.names = FALSE, na = "")
-df %>% write_parquet("clean_data/parquet_form/all_complaint-filings_clean.parquet")
-
-write.csv(df, "clean_data/all_complaint-filings_with-locations.csv", row.names = FALSE)
-df %>% write_parquet("clean_data/parquet_form/all_complaint-filings_with-locations.parquet")
+df %>%
+  filter(year(sitdtrcv) %in% 2020:2024) %>%
+  write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
