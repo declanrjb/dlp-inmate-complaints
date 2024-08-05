@@ -4,9 +4,9 @@ library(rvest)
 # not yet reliable
 # not to be committed into main data
 
-fac_codes <- read_csv("raw_data/facility-codes.csv")
+fac_codes <- read_csv("data/raw/facility-codes.csv")
 
-fac_df <- read_csv("clean_data/facilities/facility-locations.csv")
+fac_df <- read_csv("data/clean/facilities/facility-locations.csv")
 
 df <- fac_df %>%
   filter(is.na(Facility_Address)) %>%

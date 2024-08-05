@@ -1,19 +1,19 @@
 source("code/functions.R")
 
-fac_codes <- read_csv("raw_data/facility-codes.csv")
-fac_data <- read_csv("data_processing/fac_all_data_raw.csv")
-arch_fac_data <- read_csv("raw_data/bop-facility-codes-scraped.csv")
+fac_codes <- read_csv("data/raw/facility-codes.csv")
+fac_data <- read_csv("data/processing/fac_all_data_raw.csv")
+arch_fac_data <- read_csv("data/raw/bop-facility-codes-scraped.csv")
 
 # BOP official facility coordinates obtained from header of HTML page
 # at https://www.bop.gov/locations/map.jsp
 # 
-# Raw results stored in in raw_data/locations_raw.txt and then
+# Raw results stored in in data/raw/locations_raw.txt and then
 # converted from JSON-like text to CSV using https://konklone.io/json/
 # 
 # Loaded as CSV and cleaned here.
 
 # Clean up BOP's version of the location data
-fac_locations <- read_csv("data_processing/fac_locations_official/locations_converted.csv")
+fac_locations <- read_csv("data/processing/fac_locations_official/locations_converted.csv")
 colnames(fac_locations) <- colnames(fac_locations) %>% gsub("0/", "", .)
 fac_locations <- fac_locations %>%
   select(code, latitude, longitude)
@@ -99,4 +99,4 @@ fac_df <- fac_df %>%
   rename(Fac_Coords_Method = Fac_coords_method) %>%
   rename(Facility_Code = Facility_code)
 
-write.csv(fac_df, "clean_data/facilities/facility-locations.csv", row.names = FALSE)
+write.csv(fac_df, "data/clean/facilities/facility-locations.csv", row.names = FALSE)

@@ -1,6 +1,6 @@
 source("code/functions.R")
 
-fac_codes <- read_csv("raw_data/facility-codes.csv")
+fac_codes <- read_csv("data/raw/facility-codes.csv")
 
 url <- "https://www.bop.gov/mobile/locations/"
 
@@ -80,4 +80,4 @@ while ((length(which(fac_df$Fac_Address == ",")) > 0) & (i <= 5)) {
   i <- i + 1
 }
 
-write.csv(fac_df, "data_processing/fac_all_data_raw.csv", row.names = FALSE)
+write.csv(fac_df, "data/processing/fac_all_data_raw.csv", row.names = FALSE)

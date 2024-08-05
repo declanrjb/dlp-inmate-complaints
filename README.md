@@ -27,15 +27,15 @@ for this data were also retained.
 # Further Work
 Immediate next steps will be to scrape futher geographic and descriptive information about each facility from BOP webpages such as https://www.bop.gov/locations/institutions/ald/ and bind them in using the facility codes.
 
-Facility information obtained from most fac codes in current use, but further scraping will be required to get information for old fac codes stored in raw_data/bop-facility-codes-scraped.csv
+Facility information obtained from most fac codes in current use, but further scraping will be required to get information for old fac codes stored in `data/raw/bop-facility-codes-scraped.csv`
 
 # Code
 
 The `code` directory contains the following scripts:
 
 - `scrape.R`: Scrapes facility information from [BOP's website](https://www.bop.gov/mobile/locations/). 
-- `fac_clean.R`: Creates `clean_data/facilities/facility-locations.csv`, based on data provided by BOP via FOIA and online, as well as ZIP code metadata and geocoding results.
-- `merge.R`: Reads the raw complaints data, merges it with the facility data, expands status and subject codes, and removes redundant columns, writing the results to output files in `clean_data`. 
+- `fac_clean.R`: Creates `data/clean/facilities/facility-locations.csv`, based on data provided by BOP via FOIA and online, as well as ZIP code metadata and geocoding results.
+- `merge.R`: Reads the raw complaints data, merges it with the facility data, expands status and subject codes, and removes redundant columns, writing the results to output files in `data/clean`. 
 - `private_facs.R`: A work in progress to obtain information about privately-run facilities; not yet used in the results.
 - `functions.R`: Contains various helper functions used in the scripts above.
 

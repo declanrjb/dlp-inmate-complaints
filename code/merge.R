@@ -1,11 +1,11 @@
 library(tidyverse)
 source("code/functions.R")
 
-df <- read_parquet("raw_data/complaint-filings.parquet")
+df <- read_parquet("data/raw/complaint-filings.parquet")
 
-facilities_df <- read_csv("raw_data/facility-codes.csv")
+facilities_df <- read_csv("data/raw/facility-codes.csv")
 facility_names <- facilities_df %>% select(facility_code, facility_name)
-subject_codes <- read_csv("raw_data/subject-codes.csv")
+subject_codes <- read_csv("data/raw/subject-codes.csv")
 
 df <- df %>% rename(Case_Number = CASENBR)
 
@@ -31,7 +31,7 @@ df["Facility_Occurred"] <- ifelse(is.na(df$Facility_Occurred_NM), df$Facility_Oc
 
 
 # Bind in facility locations
-facility_info <- read_csv("clean_data/facilities/facility-locations.csv")
+facility_info <- read_csv("data/clean/facilities/facility-locations.csv")
 
 # 78% coverage on lat long
 # 97% on city and state
@@ -155,20 +155,20 @@ df <- df %>% select(
 # Write out into chunks to lower file size
 df %>%
   filter(year(sitdtrcv) %in% 2000:2004) %>%
-  write.csv('clean_data/cases/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
+  write.csv('data/clean/filings/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
 
 df %>%
   filter(year(sitdtrcv) %in% 2005:2009) %>%
-  write.csv('clean_data/cases/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
+  write.csv('data/clean/filings/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
 
 df %>%
   filter(year(sitdtrcv) %in% 2010:2014) %>%
-  write.csv('clean_data/cases/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
+  write.csv('data/clean/filings/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
 
 df %>%
   filter(year(sitdtrcv) %in% 2015:2019) %>%
-  write.csv('clean_data/cases/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
+  write.csv('data/clean/filings/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
 
 df %>%
   filter(year(sitdtrcv) %in% 2020:2024) %>%
-  write.csv('clean_data/cases/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
+  write.csv('data/clean/filings/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
