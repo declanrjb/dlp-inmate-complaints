@@ -80,7 +80,7 @@ The `code` directory contains the following scripts:
 
 ## Reproducibility
 
-The code in this repository requires `R` to be installed on your computer.
+The code in this repository requires `R` to be installed on your computer. Its package dependencies are managed via [`renv`](https://rstudio.github.io/renv/). To install them, run `make dependencies`.
 
 To run the main data cleaning and merging steps, run `make data` or:
 

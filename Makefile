@@ -1,6 +1,9 @@
-.PHONY: data scrape
+.PHONY: dependencies format data scrape
 
 default:
+
+dependencies:
+	Rscript -e "renv::restore()"
 
 format:
 	Rscript -e "install.packages('styler'); library(styler); style_dir('code');"
