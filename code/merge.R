@@ -30,14 +30,6 @@ df <- left_join(df,
 df["Facility_Occurred"] <- ifelse(is.na(df$Facility_Occurred_NM), df$Facility_Occurred_CODE, df$Facility_Occurred_NM)
 
 
-# Bind in facility locations
-facility_info <- read_csv("data/clean/facilities/facility-locations.csv")
-
-# 78% coverage on lat long
-# 97% on city and state
-df <- left_join(df, facility_info, by = c("Facility_Occurred_CODE" = "Facility_Code"))
-
-
 # Drop the two input columns, having collapsed them
 df <- df %>%
   select(!Facility_Occurred_CODE) %>%
