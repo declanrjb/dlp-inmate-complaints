@@ -135,9 +135,9 @@ df <- df %>%
     Received_Office,
     Facility_Occurred,
     Facility_Received,
+    sitdtrcv,
     sdtdue,
     sdtstat,
-    sitdtrcv,
     Status_Reasons,
   ) %>%
   rename(
