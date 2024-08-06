@@ -6,10 +6,10 @@ arch_fac_data <- read_csv("data/raw/bop-facility-codes-scraped.csv")
 
 # BOP official facility coordinates obtained from header of HTML page
 # at https://www.bop.gov/locations/map.jsp
-# 
+#
 # Raw results stored in in data/raw/locations_raw.txt and then
 # converted from JSON-like text to CSV using https://konklone.io/json/
-# 
+#
 # Loaded as CSV and cleaned here.
 
 # Clean up BOP's version of the location data
