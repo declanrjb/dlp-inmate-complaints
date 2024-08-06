@@ -3,7 +3,7 @@
 default:
 
 format:
-	Rscript -e "library(styler); style_dir('code');"
+	Rscript -e "install.packages('styler'); library(styler); style_dir('code');"
 
 data:
 	Rscript code/fac_clean.R
