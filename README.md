@@ -1,35 +1,74 @@
-# Overview
-Initial stages of volunteer data cleaning for the Data Liberation Project's Federal Inmate Complaints dataset.
+# BOP Inmate Complaint Data Processing
 
-# Locations
-Found this https://www.corecivic.com/facilities
-Appears to show locations of private prisons that match some of the records in the complaints dataset
-Going to attempt a download and merge to find out how much they overlap
+## Overview
 
-# Large Files
-Drive folder with large files that cannot be stored on GitHub
-https://drive.google.com/drive/folders/1yhVTG_iZfAWIbg349VBOGRQkMGYL79Za?usp=sharing
+This repository contains raw data, processing code, and the outputs of a volunteer-driven effort to provide a more human-readable version of the [federal inmate complaint dataset](https://docs.google.com/document/d/1vTuyUFNqS9tex4_s4PgmhF8RTvTb-uFMN5ElDjjVHTM/edit) the Bureau of Prisons (BOP) has provided to the [Data Liberation Project](https://www.data-liberation-project.org/) (DLP).
 
-# Proposed Changes / Additions to the Documentation
-Google Doc containing notes on columns added or altered during this process:
-https://docs.google.com/document/d/1fYZagz3RH4Ba4Tf3P3nh5ShAD99DzArc0u9YwjcQ4lI/edit?usp=sharing
+This effort has been led by [Declan Bradley](https://github.com/declanrjb), with contributions from [Jeremy Singer-Vine](https://github.com/jsvine).
 
-# Steps Taken
-Overall, the dataset was reduced from 37 columns to 19 after dropping redundant and/or derived columns. No rows were dropped at this stage.
+## Data Sources
 
-Wherever possible, esoteric codes were replaced with their human-readable equivalents according to dictionaries provided by the BOP.
-This alteration was not performed if a) doing so would make the data less readable or less easy or to understand, b) no such dictionaries
-were available, or c) there was any doubt about the accuracy of such a translation.
+The raw [complaint-filings dataset](data/raw/complaint-filings.parquet), [facility code translations](data/raw/facility-codes.csv), and [complaint-subject code translations](data/raw/subject-codes.csv) come from the Data Liberation Project's [data release of BOP records received via FOIA](https://docs.google.com/document/d/1vTuyUFNqS9tex4_s4PgmhF8RTvTb-uFMN5ElDjjVHTM/edit).
 
-Status Reasons were collapsed into a single column with a comma-separated list, although the original five separate columns
-for this data were also retained.
+[Additional facility code translations](data/raw/bop-facility-codes-scraped.csv) were scraped from a [BOP web page](https://www.bop.gov/locations/list.jsp) via the [Wayback Machine](http://wayback.archive.org/). 
 
-# Further Work
-Immediate next steps will be to scrape futher geographic and descriptive information about each facility from BOP webpages such as https://www.bop.gov/locations/institutions/ald/ and bind them in using the facility codes.
+Official [facility location data](data/raw/locations_raw.txt) were obtained from BOP's [facility map](https://www.bop.gov/locations/map.jsp). Additional location information was gathered through the [US Census Bureau's geocoder](https://geocoding.geo.census.gov/geocoder/).
 
-Facility information obtained from most fac codes in current use, but further scraping will be required to get information for old fac codes stored in `data/raw/bop-facility-codes-scraped.csv`
+## Data Processing
 
-# Code
+The goal of the output ("clean") datasets is to provide versions of the inmate filing data that:
+
+- Provide more human-readable translations for the shortened codes used in the raw data to represent facilities and subject matter
+- Provide more explicit column names
+- Provide the data in smaller-sized files
+- Remove redundant columns (i.e., those derived deterministically from other available columns)
+- Provide additional metadata relating to each filing's relevant facilities
+
+## Output
+
+### Filings
+
+The `data/clean/filings/` subdirectory contains the main output of this data pipeline. It contains one file for each of the following time periods, based on each filing's submission date:
+
+- 2000-2005
+- 2005-2009
+- 2010-2014
+- 2015-2019
+- 2020-2024
+
+Each file is between 48 and 80 megabytes, and between roughly 300,000 and 430,000 rows. They contain the following columns:
+
+| Column Name | Description | Sample Row |
+|-------------|-------------|------------|
+| `Case_Number` | Remedy Case Number; see main documentation for caveats re. repeated case numbers. | `1132042` |
+| `Case_Status` | Case status for this particular filing. | `Rejected` |
+| `Subject_Primary` | Broad category of complaint. | `MEDICAL-EXC. FORCED TREATMENT` |
+| `Subject_Secondary` | Narrower category of complaint. | `OTHER MEDICAL MATTERS` |
+| `Org_Level` | Level at which the filing was submitted. (Facility, Region, or Agency; see main documentation for details.) | `Agency` |
+| `Received_Office` | Office that received the filing. | `BOP` |
+| `Facility_Occurred` | Facility where the event(s) in question occurred. These files replace the three-letter facility code with a fuller name, where available. Where those fuller names are not available, this column retains the three-letter code. | `FORT DIX FCI` |
+| `Facility_Received` | Facility where the inmate resided when the filing was submitted. See note above re. code translations. | `SANDSTONE FCI` |
+| `Received_Date` | Date the filing was received by BOP. | `2022-10-25` |
+| `Due_Date` | The regulations-required deadline for the BOP's response. Not applicable for rejected filings. | |
+| `Latest_Status_Date` | The date of the most recent status change. | `2022-11-17` |
+| `Status_Reasons` | The reasons provided for BOP's determination. See the main documentation for a translation of these values, which are too lengthy to include directly in these files. | `WRL, DIR, OTH` |
+
+### Facilities
+
+The `data/clean/facilities/facility-locations.csv` file contains location information relating to each facility (attaining ~97% coverage), and can be joined back to the filings data's `Facility_Occurred` and `Facility_Received` columns. It contains the following columns:
+
+| Column Name | Description | Sample Row |
+|-------------|-------------|------------|
+| `Facility_Code` | The facility's official three-letter code. | `CAT` |
+| `Facility_Name` | The facility's longer name. | `ATLANTA CCM` |
+| `Facility_Address` | The facility's address, per BOP's website. | `719 MCDONOUGH BLVD S.E. ATLANTA, GA 30315` |
+| `Lat` | The latitude of that address. | `33.7118817336429` |
+| `Long` | The longitiude of that address. | `-84.3639063835144` |
+| `City` | The facility's city. | `Atlanta` |
+| `State` | The facility's state. | `GA` |
+| `Fac_Coords_Method` | The source of the geocoordinates; either `BOP Official` or `U.S. Census` (i.e., from the Census Bureau's Geocoder). | `BOP Official` |
+
+## Code
 
 The `code` directory contains the following scripts:
 
@@ -39,7 +78,7 @@ The `code` directory contains the following scripts:
 - `private_facs.R`: A work in progress to obtain information about privately-run facilities; not yet used in the results.
 - `functions.R`: Contains various helper functions used in the scripts above.
 
-# Reproducibility
+## Reproducibility
 
 The code in this repository requires `R` to be installed on your computer.
 
@@ -50,3 +89,6 @@ Rscript code/fac_clean.R
 Rscript code/merge.R
 ```
 
+## Licensing
+
+The files in `data/raw` can be considered public domain and are provided without restriction. All other data files have been generated by the Data Liberation Project and are available under Creative Commons’ [CC BY-SA 4.0 license terms](https://creativecommons.org/licenses/by-sa/4.0/). This repository’s code is available under the [MIT License terms](https://opensource.org/license/mit/).
