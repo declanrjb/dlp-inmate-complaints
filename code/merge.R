@@ -67,23 +67,18 @@ df <- df %>%
     Case_Status = gsub("CLG", "Closed Granted", Case_Status),
     Case_Status = gsub("CLO", "Closed Other", Case_Status),
   ) %>%
-  select(!CDSTATUS) %>%
-  select(!reject) %>%
-  select(!deny) %>%
-  select(!other) %>%
-  select(!grant) %>%
-  select(!accept)
+  select(!c(
+    CDSTATUS,
+    reject,
+    deny,
+    other,
+    grant,
+    accept
+  ))
 
 # Translate to human readable column name
 df <- df %>% rename(Received_Office = CDOFCRCV)
 
-# Translate to human readable column names
-df <- df %>%
-  rename(STAT_RSON_1 = STATRSN1) %>%
-  rename(STAT_RSON_2 = STATRSN2) %>%
-  rename(STAT_RSON_3 = STATRSN3) %>%
-  rename(STAT_RSON_4 = STATRSN4) %>%
-  rename(STAT_RSON_5 = STATRSN5)
 
 # Join in primary and secondary descriptions and then drop redundant columns
 df <- df %>%
@@ -105,70 +100,73 @@ df <- df %>%
   select(!closed)
 
 df["Status_Reasons"] <- df[, which(colnames(df) %in% c(
-  "STAT_RSON_1",
-  "STAT_RSON_2",
-  "STAT_RSON_3",
-  "STAT_RSON_4",
-  "STAT_RSON_5"
+  "STATRSN1",
+  "STATRSN2",
+  "STATRSN3",
+  "STATRSN4",
+  "STATRSN5"
 ))] %>%
   apply(1, paste_not_na)
 
 # Remove redundant / obscure columns
 df <- df %>%
-  select(!comptime) %>%
-  select(!diffreg_filed) %>%
-  select(!diffinst) %>%
-  select(!timely) %>%
-  select(!untimely) %>%
-  select(!resubmit) %>%
-  select(!noinfres) %>%
-  select(!attachmt) %>%
-  select(!wronglvl) %>%
-  select(!otherrej) %>%
-  select(!diffreg_answer) %>%
-  select(!overdue)
-
-df <- df %>%
-  select(!STAT_RSON_1) %>%
-  select(!STAT_RSON_2) %>%
-  select(!STAT_RSON_3) %>%
-  select(!STAT_RSON_4) %>%
-  select(!STAT_RSON_5)
+  select(!c(
+    comptime,
+    diffreg_filed,
+    diffinst,
+    timely,
+    untimely,
+    resubmit,
+    noinfres,
+    attachmt,
+    wronglvl,
+    otherrej,
+    diffreg_answer,
+    overdue,
+  )) %>%
+  select(!c(
+    STATRSN1,
+    STATRSN2,
+    STATRSN3,
+    STATRSN4,
+    STATRSN5,
+  ))
 
 # Rearrange columns for readability
-df <- df %>% select(
-  Case_Number,
-  Case_Status,
-  Subject_Primary_DESC,
-  Subject_Secondary_DESC,
-  Org_Level,
-  Received_Office,
-  Facility_Occurred,
-  Facility_Received,
-  sdtdue,
-  sdtstat,
-  sitdtrcv,
-  Status_Reasons,
-)
+df <- df %>%
+  select(
+    Case_Number,
+    Case_Status,
+    Subject_Primary_DESC,
+    Subject_Secondary_DESC,
+    Org_Level,
+    Received_Office,
+    Facility_Occurred,
+    Facility_Received,
+    sdtdue,
+    sdtstat,
+    sitdtrcv,
+    Status_Reasons,
+  )
 
 
 # Write out into chunks to lower file size
 df %>%
   filter(year(sitdtrcv) %in% 2000:2004) %>%
-  write.csv('data/clean/filings/complaint-filings_2000-2005_clean.csv',row.names=FALSE, na='')
+  write.csv("data/clean/filings/complaint-filings_2000-2005_clean.csv", row.names = FALSE, na = "")
 
 df %>%
   filter(year(sitdtrcv) %in% 2005:2009) %>%
-  write.csv('data/clean/filings/complaint-filings_2005-2009_clean.csv',row.names=FALSE, na='')
+  write.csv("data/clean/filings/complaint-filings_2005-2009_clean.csv", row.names = FALSE, na = "")
 
 df %>%
   filter(year(sitdtrcv) %in% 2010:2014) %>%
-  write.csv('data/clean/filings/complaint-filings_2010-2014_clean.csv',row.names=FALSE, na='')
+  write.csv("data/clean/filings/complaint-filings_2010-2014_clean.csv", row.names = FALSE, na = "")
 
 df %>%
   filter(year(sitdtrcv) %in% 2015:2019) %>%
-  write.csv('data/clean/filings/complaint-filings_2015-2019_clean.csv',row.names=FALSE, na='')
+  write.csv("data/clean/filings/complaint-filings_2015-2019_clean.csv", row.names = FALSE, na = "")
 
 df %>%
   filter(year(sitdtrcv) %in% 2020:2024) %>%
-  write.csv('data/clean/filings/complaint-filings_2020-2024_clean.csv',row.names=FALSE, na='')
+  write.csv("data/clean/filings/complaint-filings_2020-2024_clean.csv", row.names = FALSE, na = "")
