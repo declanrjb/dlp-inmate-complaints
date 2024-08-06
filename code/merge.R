@@ -149,12 +149,6 @@ df <- df %>% select(
   sdtstat,
   sitdtrcv,
   Status_Reasons,
-  Facility_Address,
-  Lat,
-  Long,
-  City,
-  State,
-  Fac_Coords_Method
 )
 
 
