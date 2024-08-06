@@ -77,8 +77,8 @@ df <- df %>%
   left_join(subject_codes %>% select(code, primary_desc, secondary_desc),
     by = c("cdsub1cb" = "code")
   ) %>%
-  rename(Subject_Primary_DESC = primary_desc) %>%
-  rename(Subject_Secondary_DESC = secondary_desc) %>%
+  rename(Subject_Primary = primary_desc) %>%
+  rename(Subject_Secondary = secondary_desc) %>%
   select(!CDSUB1PR) %>%
   select(!CDSUB1SC) %>%
   select(!cdsub1cb)
@@ -129,8 +129,8 @@ df <- df %>%
   select(
     Case_Number,
     Case_Status,
-    Subject_Primary_DESC,
-    Subject_Secondary_DESC,
+    Subject_Primary,
+    Subject_Secondary,
     Org_Level,
     Received_Office,
     Facility_Occurred,
@@ -139,26 +139,31 @@ df <- df %>%
     sdtstat,
     sitdtrcv,
     Status_Reasons,
+  ) %>%
+  rename(
+    Received_Date = sitdtrcv,
+    Due_Date = sdtdue,
+    Latest_Status_Date = sdtstat,
   )
 
 
 # Write out into chunks to lower file size
 df %>%
-  filter(year(sitdtrcv) %in% 2000:2004) %>%
+  filter(year(Received_Date) %in% 2000:2004) %>%
   write.csv("data/clean/filings/complaint-filings_2000-2005_clean.csv", row.names = FALSE, na = "")
 
 df %>%
-  filter(year(sitdtrcv) %in% 2005:2009) %>%
+  filter(year(Received_Date) %in% 2005:2009) %>%
   write.csv("data/clean/filings/complaint-filings_2005-2009_clean.csv", row.names = FALSE, na = "")
 
 df %>%
-  filter(year(sitdtrcv) %in% 2010:2014) %>%
+  filter(year(Received_Date) %in% 2010:2014) %>%
   write.csv("data/clean/filings/complaint-filings_2010-2014_clean.csv", row.names = FALSE, na = "")
 
 df %>%
-  filter(year(sitdtrcv) %in% 2015:2019) %>%
+  filter(year(Received_Date) %in% 2015:2019) %>%
   write.csv("data/clean/filings/complaint-filings_2015-2019_clean.csv", row.names = FALSE, na = "")
 
 df %>%
-  filter(year(sitdtrcv) %in% 2020:2024) %>%
+  filter(year(Received_Date) %in% 2020:2024) %>%
   write.csv("data/clean/filings/complaint-filings_2020-2024_clean.csv", row.names = FALSE, na = "")
