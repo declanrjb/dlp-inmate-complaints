@@ -136,7 +136,7 @@ ui <- fluidPage(
                     dateRangeInput(
                       'filed_range',
                       'Filed Between',
-                      start = '2000-01-01'
+                      start = '2020-01-01'
                     ),
                     uiOutput('Columns')
                  ) %>% tagAppendAttributes(class="filter-control")
@@ -151,8 +151,34 @@ ui <- fluidPage(
 server <- function(input, output) {
   
     dataInput <- reactive({
-      read_parquet('data/all_complaint-filings_clean.parquet') %>%
-        left_join(read_csv('data/facilities/facility-locations.csv'),
+      file_year_ranges <- list.files('dashboard-data/filings') %>% 
+        str_split_i('_',2) %>% 
+        lapply(str_split,'-') %>% 
+        lapply(function(vec) {return(vec[[1]][1]:vec[[1]][2])})
+      
+      user_year_range <- year(input$filed_range[1]):year(input$filed_range[2])
+      
+      target_files <- user_year_range %>%
+        lapply(
+          function(user_year) {
+            file_year_ranges %>% 
+              lapply(function(vec,year) {if (year %in% vec) {return(TRUE)} else {return(FALSE)}},user_year) %>% 
+              unlist() %>% 
+              which()
+          }
+        ) %>%
+        unlist() %>%
+        unique()
+      
+      df <- list.files('dashboard-data/filings') %>%
+        .[target_files] %>%
+        paste('dashboard-data/filings/',.,sep='') %>%
+        lapply(read_csv) %>%
+        do.call(rbind,.)
+      
+      
+      df <- df %>%
+        left_join(read_csv('dashboard-data/facilities/facility-locations.csv'),
                   by=c('Facility_Occurred' = 'Facility_Name')) %>%
         mutate(State = lapply(State,
                               function(x) {
@@ -163,6 +189,8 @@ server <- function(input, output) {
                                   }
                                 }
                               ))
+      
+      df
     })
     
     dataFiltered <- reactive({
@@ -226,8 +254,7 @@ server <- function(input, output) {
     extensions='Buttons',
     options = list(pageLength = 15,
                    dom = 'Bfrtip',
-                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print')),
-    server=TRUE)
+                   buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
     
     output$Columns <- renderUI({
       selectizeInput("Columns", 
