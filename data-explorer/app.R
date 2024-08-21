@@ -10,7 +10,6 @@
 library(shiny)
 library(tidyverse)
 library(DT)
-library(arrow)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -136,7 +135,7 @@ ui <- fluidPage(
                     dateRangeInput(
                       'filed_range',
                       'Filed Between',
-                      start = '2020-01-01'
+                      start = '2015-01-01'
                     ),
                     uiOutput('Columns')
                  ) %>% tagAppendAttributes(class="filter-control")
@@ -149,48 +148,9 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-  
+    
     dataInput <- reactive({
-      file_year_ranges <- list.files('dashboard-data/filings') %>% 
-        str_split_i('_',2) %>% 
-        lapply(str_split,'-') %>% 
-        lapply(function(vec) {return(vec[[1]][1]:vec[[1]][2])})
-      
-      user_year_range <- year(input$filed_range[1]):year(input$filed_range[2])
-      
-      target_files <- user_year_range %>%
-        lapply(
-          function(user_year) {
-            file_year_ranges %>% 
-              lapply(function(vec,year) {if (year %in% vec) {return(TRUE)} else {return(FALSE)}},user_year) %>% 
-              unlist() %>% 
-              which()
-          }
-        ) %>%
-        unlist() %>%
-        unique()
-      
-      df <- list.files('dashboard-data/filings') %>%
-        .[target_files] %>%
-        paste('dashboard-data/filings/',.,sep='') %>%
-        lapply(read_csv) %>%
-        do.call(rbind,.)
-      
-      
-      df <- df %>%
-        left_join(read_csv('dashboard-data/facilities/facility-locations.csv'),
-                  by=c('Facility_Occurred' = 'Facility_Name')) %>%
-        mutate(State = lapply(State,
-                              function(x) {
-                                  if (x %in% state.abb) {
-                                    state.name[which(state.abb == x)]
-                                  } else {
-                                    return(NA)
-                                  }
-                                }
-                              ))
-      
-      df
+      read_csv('dashboard-data/all-filings.csv')
     })
     
     dataFiltered <- reactive({
@@ -244,8 +204,6 @@ server <- function(input, output) {
 
     output$cases <- DT::renderDataTable({
       table_df <- dataFiltered() %>%
-        mutate(Lat = round(Lat,2),
-               Long = round(Long,2)) %>%
         .[,which(colnames(.) %in% gsub(' ','_',input$Columns))]
       colnames(table_df) <- colnames(table_df) %>% gsub('_',' ',.)
       table_df
