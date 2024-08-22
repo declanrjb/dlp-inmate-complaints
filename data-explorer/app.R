@@ -125,7 +125,8 @@ ui <- fluidPage(
                 a("Data Liberation Project") %>% tagAppendAttributes(href='https://www.data-liberation-project.org/'),
               ) %>% tagAppendAttributes(class='project-branding'),
               titlePanel("Inmate Complaints"),
-              p("Exploratory analysis interface.") %>% tagAppendAttributes(class='blurb'),
+              p("Exploratory analysis interface. Developed by ",
+                a('Declan Bradley', icon('github'), href='https://github.com/declanrjb/inmate-complaints-dashboard-standalone')) %>% tagAppendAttributes(class='blurb'),
                div(
                     uiOutput('State'),
                     uiOutput('Subject_Primary'),
@@ -150,7 +151,7 @@ ui <- fluidPage(
 server <- function(input, output) {
     
     dataInput <- reactive({
-      read_csv('dashboard-data/all-filings.csv')
+      read_csv('all-filings.csv')
     })
     
     dataFiltered <- reactive({
